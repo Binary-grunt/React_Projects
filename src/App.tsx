@@ -3,10 +3,6 @@ import './App.css';
 import { useThemeStore } from "./store/themeStore.tsx";
 import {Header} from "./components/header/Header.tsx";
 import {Home} from "./components/home/Home.tsx";
-import {useDataStore} from "./store/dataStore.tsx";
-
-
-
 
 export const App: FC = () => {
     const {theme, textColor} = useThemeStore();
