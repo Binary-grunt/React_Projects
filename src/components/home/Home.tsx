@@ -22,8 +22,8 @@ export const Home = () => {
                 :
                 <Title content={EndTitle.content} contentBold={EndTitle.contentBold}/> }
             <div>
-                {quizzes.map((quizz, index) => (
-                    <ButtonQuiz icon={quizz.icon} key={index} titleSubject={quizz.title}/>
+                {quizzes.map((quiz, index) => (
+                    <ButtonQuiz icon={quiz.icon} key={index} titleSubject={quiz.title}/>
                 ))}
 
             </div>
