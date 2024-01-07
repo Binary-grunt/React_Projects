@@ -1,25 +1,28 @@
-import { useState } from 'react'
-import './App.css'
+import {FC} from 'react';
+import './App.css';
+import { useThemeStore } from "./store/themeStore.tsx";
+import {Header} from "./components/header/Header.tsx";
+import {Home} from "./components/home/Home.tsx";
+import {useDataStore} from "./store/dataStore.tsx";
 
-function App() {
-  const [count, setCount] = useState<number>(0)
 
-  return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+
+export const App: FC = () => {
+    const {theme, textColor} = useThemeStore();
+
+    const containerStyle = {
+        backgroundColor: theme,
+        color: textColor
+    };
+
+
+
+
+    return (
+        <div className="full-size-container" style={containerStyle}>
+            <Header/>
+            <Home />
+        </div>
+    );
 }
-
-export default App
