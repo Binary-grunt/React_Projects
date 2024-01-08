@@ -1,5 +1,5 @@
 import { FC } from "react";
-import {useThemeStore} from "../../store/themeStore.tsx";
+import {useThemeStore} from "../../../store/themeStore.tsx";
 type ButtonQuiz = {
     icon: string,
     titleSubject: string,
