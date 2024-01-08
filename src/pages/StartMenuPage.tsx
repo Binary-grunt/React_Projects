@@ -1,6 +1,6 @@
-import {Title} from "./Title.tsx";
-import {ButtonQuiz} from "../buttons/ButtonQuiz.tsx";
-import {useDataStore} from "../../store/dataStore.tsx";
+import {Title} from "../components/Header/Title.tsx";
+import {ButtonQuiz} from "../components/Quiz/Buttons/ButtonQuiz.tsx";
+import {useDataStore} from "../store/dataStore.tsx";
 
 
 enum StartTitle {
