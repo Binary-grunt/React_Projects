@@ -5,10 +5,12 @@
         align-items: flex-start;
         border-radius: 999px;
         background: #A729F5;
-        width: 32px;
-        height: 20px;
+        width: 42px;
         cursor: pointer;
         border: none;
+    }
+    .buttonThemeStore img{
+        height: 16px;
     }
 
     .svgMove.moved {
