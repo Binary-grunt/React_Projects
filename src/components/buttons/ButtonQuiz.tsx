@@ -1,18 +1,26 @@
-import {FC} from "react";
-
+import { FC } from "react";
+import {useThemeStore} from "../../store/themeStore.tsx";
 type ButtonQuiz = {
     icon: string,
     titleSubject: string,
+    backgroundColor: string,
 }
-export const ButtonQuiz:FC<ButtonQuiz> = ({icon, titleSubject}) => {
+
+export const ButtonQuiz: FC<ButtonQuiz> = ({ icon, titleSubject, backgroundColor }) => {
+    const {themeButton} = useThemeStore();
+
+
     return (
-        <>
-            <div className={"flex flex-row border-solid border-2 border-sky-500 "}>
-                <img src={icon} alt="icon" className={"border-2"}/>
-            <button className={"transition ease-in-out delay-150"}>
-                {titleSubject}
-            </button>
-            </div>
-        </>
+        <button
+            style={{backgroundColor:themeButton}}
+            className="flex flex-row items-center buttonquiz rounded-xl mx-6 my-2 p-3"
+        >
+            <img src={icon}
+                 alt={`${titleSubject} icon`}
+                 className={'rounded-lg p-2'}
+                 style={{backgroundColor: backgroundColor}}
+            />
+            <p className="ml-2 font-rubik text-xl pl-2">{titleSubject}</p>
+        </button>
     );
 };
