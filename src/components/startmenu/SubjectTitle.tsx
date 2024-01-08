@@ -8,7 +8,7 @@ export const SubjectTitle: FC <SubjectTitleType> = ({icon, title}) => {
     return (
         <>
             <div className={'flex flex-row'}>
-                <img src={icon}/>
+                <img src={icon} alt={title}/>
                 <h2>{title}</h2>
             </div>
 
