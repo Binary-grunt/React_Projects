@@ -12,7 +12,7 @@ enum EndTitle {
     contentBold = 'You scored...'
 }
 
-export const Home = () => {
+export const StartMenuPage = () => {
     const statut = false;
     const {quizzes} = useDataStore();
     const backgroundColorIcon = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF']
