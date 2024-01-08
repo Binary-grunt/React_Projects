@@ -1,7 +1,7 @@
 import {FC, useState} from "react";
-import './ThemeToggleButton.css';
-import {BgColor, useThemeStore} from "../../store/themeStore.tsx";
-import circleToggle from '../../assets/images/Ellipse 10.svg';
+import '../css/ThemeToggleButton.css';
+import {BgColor, useThemeStore} from "../store/themeStore.tsx";
+import circleToggle from '../assets/images/Ellipse 10.svg';
 
 
 export const ThemeToggleButton: FC= () => {
