@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
-import {BgColor, useThemeStore} from '../../store/themeStore';
-import './BackgroundIcon.css';
+import {BgColor, useThemeStore} from '../store/themeStore.tsx';
+import '../css/BackgroundIcon.css';
 
 type BackgroundIconProps = {
     children: React.ReactNode;
