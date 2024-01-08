@@ -4,7 +4,7 @@ type SubjectTitleType = {
     icon: string,
     title: string
 }
-export const SubjectTitle: FC <SubjectTitleType> = ({icon, title}) => {
+export const Subject: FC <SubjectTitleType> = ({icon, title}) => {
     return (
         <>
             <div className={'flex flex-row'}>
