@@ -1,5 +1,5 @@
-import {SubjectTitle} from "./SubjectTitle.tsx";
-import {ThemeToggleButton} from "./ThemeToggleButton.tsx";
+import {SubjectTitle} from "../startmenu/SubjectTitle.tsx";
+import {ThemeToggleButton} from "../theme/ThemeToggleButton.tsx";
 
 
 export const Header = () => {
@@ -7,7 +7,7 @@ export const Header = () => {
 
     return (
         <>
-            <div className={"flex justify-around p-5"}>
+            <div className={"flex justify-around p-8"}>
                 <div className={subject ? '' : 'invisible'}>
                     <SubjectTitle icon={'Test'} title={'ACCESSIBILTY'}/>
                 </div>
