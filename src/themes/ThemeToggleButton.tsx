@@ -15,12 +15,24 @@ export const ThemeToggleButton: FC= () => {
 
     return (
         <>
-            <div className={'flex flex-row gap-3 center'}>
-                {backgroundColor === BgColor.light ? <img src={sunIcon.dark} alt='sun-icon-dark'/>: <img src={sunIcon.light} alt='sun-icon-light'/>}
+            <div className={'flex flex-row gap-2 items-center'}>
+                {backgroundColor === BgColor.light ?
+                    <img src={sunIcon.dark} alt='sun-icon-dark' className={'size-5'}/>
+                    :
+                    <img src={sunIcon.light} alt='sun-icon-light' className={'size-5'}/>
+                }
                 <button className={'buttonThemeStore'} onClick={handleClick}>
-                    <img src={circleToggle} className={`svgMove ${isMoved ? 'moved' : 'initial' }` }  alt='toggleCircle'/>
+                    <img
+                        src={circleToggle}
+                        className={`svgMove ${isMoved ? 'moved' : 'initial'}`}
+                        alt='toggleCircle'
+                    />
                 </button>
-                {backgroundColor === BgColor.light ? <img src={moonIcon.dark} alt='moon-icon-dark'/>: <img src={moonIcon.light} alt='moon-icon-light'/>}
+                {backgroundColor === BgColor.light ?
+                    <img src={moonIcon.dark} alt='moon-icon-dark' className={'size-5'}/>
+                    :
+                    <img src={moonIcon.light} alt='moon-icon-light' className={'size-5'}/>
+                }
             </div>
         </>
     );
