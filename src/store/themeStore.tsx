@@ -41,10 +41,10 @@ type StoreTheme = {
 }
 
 export const useThemeStore:  UseBoundStore<StoreApi<StoreTheme>> = create<StoreTheme>()((set) =>({
-        backgroundColor: BgColor.light,
-        themeButton: BgButton.light,
-        textColor: TextColor.black,
-        subTextColor: SubTextColor.black,
+        backgroundColor: BgColor.black,
+        themeButton: BgButton.black,
+        textColor: TextColor.light,
+        subTextColor: SubTextColor.light,
         sunIcon: {
             light: sunLight,
             dark: sunDark
