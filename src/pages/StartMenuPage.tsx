@@ -1,6 +1,7 @@
 import {Title} from "../components/Header/Title.tsx";
-import {ButtonQuiz} from "../components/Quiz/Buttons/ButtonQuiz.tsx";
+import {ButtonSubject} from "../components/Quiz/Buttons/ButtonSubject.tsx";
 import {useDataStore} from "../store/dataStore.tsx";
+import {Header} from "../components/Header/Header.tsx";
 
 
 enum StartTitle {
@@ -15,9 +16,10 @@ enum EndTitle {
 export const StartMenuPage = () => {
     const statut = false;
     const {quizzes} = useDataStore();
-    const backgroundColorIcon = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF']
+    const backgroundColorIcon = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
     return (
         <>
+        <Header/>
             <div className={'flex flex-col gap-10 pt-4 m-2'}>
             {!statut ?
                 <Title content={StartTitle.content} contentBold={StartTitle.contentBold}/>
@@ -26,7 +28,7 @@ export const StartMenuPage = () => {
 
             <div className={"flex flex-col justify-center"}>
                 {quizzes.map((quiz, index) => (
-                    <ButtonQuiz
+                    <ButtonSubject
                         icon={quiz.icon}
                         key={index}
                         titleSubject={quiz.title}
