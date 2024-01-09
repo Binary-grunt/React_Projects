@@ -21,7 +21,7 @@ export const ThemeToggleButton: FC= () => {
                     :
                     <img src={sunIcon.light} alt='sun-icon-light' className={'size-5'}/>
                 }
-                <button className={'buttonThemeStore'} onClick={handleClick}>
+                <button className={'buttonThemeStore bg-violet-600'} onClick={handleClick}>
                     <img
                         src={circleToggle}
                         className={`svgMove ${isMoved ? 'moved' : 'initial'}`}
