@@ -1,16 +1,19 @@
-import {Subject} from "./Subject.tsx";
 import {ThemeToggleButton} from "../../themes/ThemeToggleButton.tsx";
+import React, {FC} from "react";
 
+type HeaderProps = {
+    children?: React.ReactNode
+}
 
-export const Header = () => {
-    const subject = false;
-
+export const Header:FC<HeaderProps> = ({children}) => {
     return (
         <>
-            <div className={"flex justify-around p-8"}>
-                <div className={subject ? '' : 'invisible'}>
-                    <Subject icon={'Test'} title={'ACCESSIBILTY'}/>
-                </div>
+            <div className={"flex flex-row justify-between items-center p-6"}>
+                {children &&
+                    <div>
+                        {children}
+                    </div>
+                }
                 <div>
                     <ThemeToggleButton/>
                 </div>
