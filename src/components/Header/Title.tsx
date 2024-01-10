@@ -4,8 +4,9 @@ import {useThemeStore} from "../../store/themeStore.tsx";
 type Title = {
     content: string,
     contentBold: string
+    subTitle?: string
 }
-export const Title:FC<Title>= ({content, contentBold}) => {
+export const Title:FC<Title>= ({content, contentBold, subTitle}) => {
     const {subTextColor} = useThemeStore();
     return (
         <>
@@ -15,7 +16,7 @@ export const Title:FC<Title>= ({content, contentBold}) => {
                     {contentBold}
                     </div>
                 </div>
-                <p style={{color: subTextColor}} className={'font-rubik italic'}>Pick a subject to get started</p>
+                {subTitle &&<p style={{color: subTextColor}} className={'font-rubik italic'}>{subTitle}</p>}
             </div>
 
         </>
