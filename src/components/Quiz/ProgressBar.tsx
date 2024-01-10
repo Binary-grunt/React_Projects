@@ -11,7 +11,7 @@ export const ProgressBar:FC<ProgressBarProps> = ({progress}) => {
     return (
         <>
             <div
-                className="bg-gray-200 rounded-full h-3 dark:bg-gray-700"
+                className="bg-gray-200 rounded-full h-3 dark:bg-gray-700 shadow-lg"
                 style={{backgroundColor: themeButton }}
             >
                 <div
