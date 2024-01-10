@@ -5,10 +5,11 @@ type ButtonSubjectProps = {
     icon: string;
     titleSubject: string;
     backgroundColor: string;
+    onClickSubject: () => void
 };
 
 export const ButtonSubject: FC<ButtonSubjectProps> = (
-    { icon, titleSubject, backgroundColor }) => {
+    { icon, titleSubject, backgroundColor, onClickSubject }) => {
     const { themeButton } = useThemeStore();
 
     return (
@@ -17,6 +18,7 @@ export const ButtonSubject: FC<ButtonSubjectProps> = (
                 <button
                     style={{ backgroundColor: themeButton }}
                     className="flex flex-row items-center rounded-xl mx-6 my-2 p-3"
+                    onClick={onClickSubject}
                 >
                     {icon && (
                         <img
