@@ -2,6 +2,7 @@ import {Title} from "../components/Header/Title.tsx";
 import {ButtonSubject} from "../components/Button/ButtonSubject.tsx";
 import {useDataStore} from "../store/dataStore.tsx";
 import {Header} from "../components/Header/Header.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 enum StartTitle {
@@ -12,6 +13,10 @@ enum StartTitle {
 
 export const StartMenuPage = () => {
     const {quizzes} = useDataStore();
+    const navigate = useNavigate();
+    const handleSubjectClick = (index: number) => {
+        navigate(`/${index}`); // Navigue vers la page du quiz avec l'index spécifique
+    };
     const backgroundColorIcon = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
     return (
         <>
@@ -29,6 +34,7 @@ export const StartMenuPage = () => {
                             key={index}
                             titleSubject={quiz.title}
                             backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
+                            onClickSubject={() => handleSubjectClick(index)}
                         />
                     ))}
                 </div>
