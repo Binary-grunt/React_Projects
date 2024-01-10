@@ -52,7 +52,7 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
         dispatch({
             type: 'RESET',
             payload: {
-                currentQuestionIndex: 8,
+                currentQuestionIndex: 10,
                 selectedOption: '',
                 isSubmit: false,
                 isCorrect: false,
