@@ -9,25 +9,26 @@ import {QuestionQuiz} from "../components/Quiz/QuestionQuiz.tsx";
 import {ButtonSubmit} from "../components/Button/ButtonSubmit.tsx";
 import {quizReducer} from "../hooks/quizReducer.tsx";
 import {ScoreFinal} from "../components/Quiz/ScoreFinal.tsx";
+import {useParams} from "react-router-dom";
 
-type QuizPageProps = {
-    index?: number,
-}
 
-export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
+
+export const QuizPage:FC = () => {
+    const params = useParams();
+    const quizIndex = params.index ? parseInt(params.index, 10) : 0;
+
     const [state, dispatch] = useReducer(quizReducer,{
         currentQuestionIndex: 0,
         selectedOption: '',
         isSubmit: false,
         isCorrect: false,
         score: 0
-
     });
 
     const backgroundColorIcon: string[] = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
     const { quizzes } = useDataStore();
     const {subTextColor} = useThemeStore();
-    const quiz = quizzes[index];
+    const quiz = quizzes[quizIndex];
     const question = quiz.questions[state.currentQuestionIndex];
 
     const handleOptionClick = (option: string) => {
@@ -45,21 +46,21 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
         if (state.isSubmit && state.currentQuestionIndex < quiz.questions.length - 1 || state.currentQuestionIndex === 9) {
             dispatch({ type: 'NEXT_QUESTION'});
         }
-        console.log(state.score);
     };
 
     useEffect(() => {
         dispatch({
             type: 'RESET',
             payload: {
-                currentQuestionIndex: 10,
+                currentQuestionIndex: 0,
                 selectedOption: '',
                 isSubmit: false,
                 isCorrect: false,
                 score: 0
             }
         });
-    }, [index]);
+    }, [quizIndex]);
+
 
     return (
         <>
@@ -68,11 +69,11 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
                     <Subject
                         icon={quiz.icon}
                         title={quiz.title}
-                        backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
+                        backgroundColor={backgroundColorIcon[quizIndex % backgroundColorIcon.length]}
                     />
                 </Header>
                     {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
-                        <div className={'flex flex-col justify-items-center mx-6 pt-14'}>
+                        <div className={'sm:flex flex-col justify-items-center mx-6 pt-14 md:p-10 '}>
                             <QuestionQuiz
                                 subTextColor={subTextColor}
                                 currentIndexQuestion={state.currentQuestionIndex}
@@ -84,7 +85,6 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
                             </div>
                             <form onSubmit={handleNextQuestion} className={'flex flex-col pt-8'}>
                                 <InputQuiz
-                                    backgroundColor={'#F4F6FA'}
                                     selectedOption={state.selectedOption}
                                     options={question.options}
                                     isCorrect={state.isCorrect}
@@ -98,7 +98,6 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
                                     content={'Next Question'}
                                 />
                                 }
-
                             </form>
 
                         </div>
@@ -108,14 +107,11 @@ export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
                                 <Subject
                                     icon={quiz.icon}
                                     title={quiz.title}
-                                    backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
+                                    backgroundColor={backgroundColorIcon[quizIndex % backgroundColorIcon.length]}
                                 />
                             </ScoreFinal>
                         </div>}
                     </div>
-
-
-
             {!quizzes.length &&
                 <div>Loading...</div>}
         </>
