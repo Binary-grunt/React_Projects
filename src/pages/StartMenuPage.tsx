@@ -6,7 +6,8 @@ import {Header} from "../components/Header/Header.tsx";
 
 enum StartTitle {
     content = "Welcome to the",
-    contentBold = "Frontend Quiz!"
+    contentBold = "Frontend Quiz!",
+    subTitle = 'Pick a subject to get started'
 }
 
 export const StartMenuPage = () => {
@@ -16,7 +17,11 @@ export const StartMenuPage = () => {
         <>
         <Header/>
             <div className={'flex flex-col gap-10 pt-4 m-2'}>
-                <Title content={StartTitle.content} contentBold={StartTitle.contentBold}/>
+                <Title
+                    content={StartTitle.content}
+                    contentBold={StartTitle.contentBold}
+                    subTitle={StartTitle.subTitle}
+                />
                 <div className={"flex flex-col justify-center"}>
                     {quizzes.map((quiz, index) => (
                         <ButtonSubject
