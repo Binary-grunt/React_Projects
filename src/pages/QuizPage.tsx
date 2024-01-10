@@ -1,90 +1,123 @@
-import {ChangeEvent, FC, FormEvent, useState} from 'react';
+import {FC, FormEvent, useEffect, useReducer} from 'react';
 import { useDataStore } from '../store/dataStore';
-import {ButtonQuiz} from "../components/Button/ButtonQuiz.tsx";
+import {InputQuiz} from "../components/Quiz/InputQuiz.tsx";
 import {Header} from "../components/Header/Header.tsx";
 import {useThemeStore} from "../store/themeStore.tsx";
 import {Subject} from "../components/Header/Subject.tsx";
 import {ProgressBar} from "../components/Quiz/ProgressBar.tsx";
 import {QuestionQuiz} from "../components/Quiz/QuestionQuiz.tsx";
 import {ButtonSubmit} from "../components/Button/ButtonSubmit.tsx";
+import {quizReducer} from "../hooks/quizReducer.tsx";
+import {ScoreFinal} from "../components/Quiz/ScoreFinal.tsx";
 
 type QuizPageProps = {
     index?: number,
 }
 
-export const QuizPage:FC<QuizPageProps> = ({index = 1}) => {
-    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [select, setSelect] = useState<string | null>(null);
-    const [isAnswered, setIsAnswered] = useState(false);
+export const QuizPage:FC<QuizPageProps> = ({index = 0}) => {
+    const [state, dispatch] = useReducer(quizReducer,{
+        currentQuestionIndex: 0,
+        selectedOption: '',
+        isSubmit: false,
+        isCorrect: false,
+        score: 0
 
-    const { quizzes } = useDataStore();
-    const {subTextColor} = useThemeStore();
+    });
 
     const backgroundColorIcon: string[] = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
-
+    const { quizzes } = useDataStore();
+    const {subTextColor} = useThemeStore();
     const quiz = quizzes[index];
-    const question = quiz.questions[currentQuestionIndex];
+    const question = quiz.questions[state.currentQuestionIndex];
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setSelect(e.target.value)
-    }
+    const handleOptionClick = (option: string) => {
+        dispatch({ type: 'SELECT_OPTION', payload: option });
+    };
+
     const handleSubmitAnswer = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (select === undefined || select === null) {
-            console.log('No answer selected');
-            return;
-        }
-        if (select === question.answer) {
-            console.log('Good');
-        } else {
-            console.log('Not good');
-        }
-
-        console.log(`select: ${select}`);
-        console.log(`answer: ${question.answer}`);
-        setIsAnswered(true);
+        const isCorrect = state.selectedOption === question.answer;
+        dispatch({ type: 'SUBMIT_ANSWER', payload: isCorrect });
     };
 
-    const handleNextQuestion = () => {
-        if (!isAnswered) {
-            return;
-        } else if (currentQuestionIndex < quiz.questions.length - 1) {
-            setCurrentQuestionIndex(currentQuestionIndex + 1);
+    const handleNextQuestion = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (state.isSubmit && state.currentQuestionIndex < quiz.questions.length - 1 || state.currentQuestionIndex === 9) {
+            dispatch({ type: 'NEXT_QUESTION'});
         }
+        console.log(state.score);
     };
+
+    useEffect(() => {
+        dispatch({
+            type: 'RESET',
+            payload: {
+                currentQuestionIndex: 8,
+                selectedOption: '',
+                isSubmit: false,
+                isCorrect: false,
+                score: 0
+            }
+        });
+    }, [index]);
 
     return (
         <>
-            {quizzes.length > 0 &&
-                <div className={'flex-col flex justify-center '}>
-                    <Header>
-                        <Subject
-                            icon={quiz.icon}
-                            title={quiz.title}
-                            backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
-                        />
-                    </Header>
-                    <div className={'flex flex-col justify-items-center mx-6 pt-14'}>
-                        <QuestionQuiz
-                            subTextColor={subTextColor}
-                            currentIndexQuestion={currentQuestionIndex}
-                            quizQuestionLength={quiz.questions.length}
-                            quizQuestion={question.question}
-                        />
-                        <ProgressBar progress={currentQuestionIndex}/>
-                        <form onSubmit={handleSubmitAnswer} className={'flex flex-col pt-8'}>
-                            <ButtonQuiz
-                                backgroundColor={'#F4F6FA'}
-                                options={question.options}
-                                onChangeClick={handleChange}
+            <div className={'flex-col flex justify-center '}>
+                <Header>
+                    <Subject
+                        icon={quiz.icon}
+                        title={quiz.title}
+                        backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
+                    />
+                </Header>
+                    {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
+                        <div className={'flex flex-col justify-items-center mx-6 pt-14'}>
+                            <QuestionQuiz
+                                subTextColor={subTextColor}
+                                currentIndexQuestion={state.currentQuestionIndex}
+                                quizQuestionLength={quiz.questions.length}
+                                quizQuestion={question.question}
                             />
-                            <ButtonSubmit onSubmitClick={handleNextQuestion}/>
-                        </form>
+                            <div className={'pt-2'}>
+                                <ProgressBar progress={state.currentQuestionIndex}/>
+                            </div>
+                            <form onSubmit={handleNextQuestion} className={'flex flex-col pt-8'}>
+                                <InputQuiz
+                                    backgroundColor={'#F4F6FA'}
+                                    selectedOption={state.selectedOption}
+                                    options={question.options}
+                                    isCorrect={state.isCorrect}
+                                    isSubmit={state.isSubmit}
+                                    onChangeClick={handleOptionClick}
+                                />
+                                {!state.isSubmit ? <ButtonSubmit
+                                    content={'Submit Answer'}
+                                    onSubmitClick={handleSubmitAnswer}
+                                /> : <ButtonSubmit
+                                    content={'Next Question'}
+                                />
+                                }
+
+                            </form>
+
+                        </div>
+                        :
+                        <div>
+                            <ScoreFinal score={state.score} quizQuestionLength={quiz.questions.length}>
+                                <Subject
+                                    icon={quiz.icon}
+                                    title={quiz.title}
+                                    backgroundColor={backgroundColorIcon[index % backgroundColorIcon.length]}
+                                />
+                            </ScoreFinal>
+                        </div>}
                     </div>
-                </div>
-            }
+
+
+
             {!quizzes.length &&
-            <div>Loading...</div>}
+                <div>Loading...</div>}
         </>
     );
 };
