@@ -37,19 +37,19 @@ export const QuizListChoice:FC<QuizProps> = ({state, quizIndex, dispatch}) => {
         <>
             <div className={`flex flex-col justify-items-center pt-10 
                         md:pt-14
-                        xl:flex-row xl:gap-24 xl:pt-24`}>
-                <div className={'xl:flex-row xl:w-6/12'}>
+                        xl:flex xl:flex-row xl:justify-between xl:pt-20 xl:gap-18`}>
+                <div className={''}>
                     <QuestionQuiz
                         currentIndexQuestion={state.currentQuestionIndex}
                         quizQuestionLength={quiz.questions.length}
                         quizQuestion={question.question}
                     />
-                    <div className={'pt-6 md:pt-10'}>
+                    <div className={'pt-6 md:pt-10 xl:pt-44'}>
                         <ProgressBar progress={state.currentQuestionIndex}/>
                     </div>
                 </div>
                 <form onSubmit={handleNextQuestion} className={`flex flex-col pt-10 
-                            md:pt-14 xl:pt-0 xl:w-6/12`}>
+                            md:pt-14 xl:pt-0`}>
                     <InputQuiz
                         selectedOption={state.selectedOption}
                         options={question.options}
