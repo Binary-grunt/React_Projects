@@ -3,7 +3,7 @@ import { useDataStore } from '../store';
 import {useParams} from "react-router-dom";
 import {Header, Subject} from "../components/Header";
 import {quizReducer} from "../hooks/quizReducer.tsx";
-import {Score, QuizChoice} from "../components/Quiz";
+import {Score, QuizListChoice} from "../components/Quiz";
 import {backgroundColorIcon} from "../store/themeStore.tsx";
 
 
@@ -22,7 +22,6 @@ export const QuizPage:FC = () => {
     const quizIndex = params.index ? parseInt(params.index, 10) : 0;
     const { quizzes } = useDataStore();
     const quiz = quizzes[quizIndex];
-
 
     useEffect(() => {
         dispatch({
@@ -44,7 +43,7 @@ export const QuizPage:FC = () => {
                     />
                 </Header>
                     {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
-                        <QuizChoice
+                        <QuizListChoice
                             state={state}
                             quizIndex={quizIndex}
                             dispatch={dispatch}
