@@ -4,6 +4,7 @@ export type InitialState = {
     isSubmit: boolean,
     isCorrect: boolean,
     score: number,
+    showError: boolean,
 };
 
 export type ActionType =
@@ -24,10 +25,14 @@ export const quizReducer = (state:InitialState, action:ActionType) => {
             };
         case 'SUBMIT_ANSWER':
             updatedScore = action.payload ? state.score + 1 : state.score;
+            if(state.selectedOption === '') {
+                return {...state, showError: true};
+            }
             return {...state,
                 isSubmit: true,
                 isCorrect: action.payload,
-                score: updatedScore
+                score: updatedScore,
+                showError: false
             };
         case 'NEXT_QUESTION':
             return { ...state,
