@@ -60,14 +60,16 @@ export const QuizPage: FC = () => {
             <div className={`flex-col flex justify-center mx-2 p-6
                  md:px-14 md:pt-12 md:mx-3
                  xl:pt-28 xl:mx-28`}>
-                <Header>
-                    {/* Subject header with dynamic background color. */}
-                    <Subject
-                        icon={quiz.icon}
-                        title={quiz.title}
-                        backgroundColor={backgroundColorIcon[quizIndex % backgroundColorIcon.length]}
-                    />
-                </Header>
+                <div className={"flex flex-row justify-between items-center"}>
+                    <Header>
+                        {/* Subject header with dynamic background color. */}
+                        <Subject
+                            icon={quiz.icon}
+                            title={quiz.title}
+                            backgroundColor={backgroundColorIcon[quizIndex % backgroundColorIcon.length]}
+                        />
+                    </Header>
+                </div>
                 {/* Conditionally render QuizListChoice or Score component based on the quiz state. */}
                 {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
                     <QuizListChoice
