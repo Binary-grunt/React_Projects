@@ -23,6 +23,7 @@ export enum SubTextColor {
     light = '#ABC1E1',
     black = '#626C7F'
 }
+export const backgroundColorIcon: string[] = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
 
 type StoreTheme = {
     backgroundColor: BgColor,
