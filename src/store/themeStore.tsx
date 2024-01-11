@@ -1,14 +1,11 @@
 import {create, StoreApi, UseBoundStore} from "zustand";
-import mobileIconLight from './../assets/images/pattern-background-mobile-light.svg';
-import mobileIconDark from './../assets/images/pattern-background-mobile-dark.svg';
-import tabletIconLight from './../assets/images/pattern-background-tablet-light.svg';
-import tabletIconDark from './../assets/images/pattern-background-tablet-dark.svg';
-import desktopIconLight from './../assets/images/pattern-background-desktop-light.svg';
-import desktopIconDark from './../assets/images/pattern-background-desktop-dark.svg';
-import moonLight from './../assets/images/icon-moon-light.svg';
-import moonDark from './../assets/images/icon-moon-dark.svg';
-import sunLight from './../assets/images/icon-sun-light.svg'
-import sunDark from './../assets/images/icon-sun-dark.svg';
+import {
+    MobileIconLight, MobileIconDark,
+    TabletIconDark, TabletIconLight,
+    DesktopIconDark, DesktopIconLight,
+    MoonDark, MoonLight,
+    SunDark, SunLight
+} from '../assets/images';
 
 export enum BgColor {
     light= '#F4F6FA',
@@ -46,24 +43,24 @@ export const useThemeStore:  UseBoundStore<StoreApi<StoreTheme>> = create<StoreT
         textColor: TextColor.light,
         subTextColor: SubTextColor.light,
         sunIcon: {
-            light: sunLight,
-            dark: sunDark
+            light: SunLight,
+            dark: SunDark
         },
         moonIcon: {
-            light: moonLight,
-            dark: moonDark,
+            light: MoonLight,
+            dark: MoonDark,
         },
         mobileIcon: {
-            light: mobileIconLight,
-            dark: mobileIconDark,
+            light: MobileIconLight,
+            dark: MobileIconDark,
         },
         tabletIcon: {
-            light: tabletIconLight,
-            dark: tabletIconDark
+            light: TabletIconLight,
+            dark: TabletIconDark
         },
         desktopIcon: {
-            light: desktopIconLight,
-            dark: desktopIconDark
+            light: DesktopIconLight,
+            dark: DesktopIconDark
         },
         toggleChangeTheme: () => set((state) => ({
             backgroundColor: state.backgroundColor === BgColor.light ? BgColor.black : BgColor.light,
