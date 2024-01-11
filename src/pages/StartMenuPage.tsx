@@ -3,6 +3,7 @@ import {ButtonSubject} from "../components/Button";
 import {useDataStore} from "../store";
 import {Header} from "../components/Header";
 import {useNavigate} from "react-router-dom";
+import {backgroundColorIcon} from "../store/themeStore.tsx";
 
 
 enum StartTitle {
@@ -11,13 +12,14 @@ enum StartTitle {
     subTitle = 'Pick a subject to get started'
 }
 
+
 export const StartMenuPage = () => {
     const {quizzes} = useDataStore();
     const navigate = useNavigate();
     const handleSubjectClick = (index: number) => {
-        navigate(`/${index}`); // Navigue vers la page du quiz avec l'index spécifique
+        navigate(`/${index}`);
     };
-    const backgroundColorIcon = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
+
     return (
         <>
         <Header/>
