@@ -17,7 +17,7 @@ export const ButtonSubject: FC<ButtonSubjectProps> = (
             {titleSubject && (
                 <button
                     style={{ backgroundColor: themeButton }}
-                    className="flex flex-row items-center rounded-xl mx-6 my-2 p-3"
+                    className="flex flex-row items-center rounded-2xl my-3 p-5 shadow-lg "
                     onClick={onClickSubject}
                 >
                     {icon && (
@@ -28,7 +28,7 @@ export const ButtonSubject: FC<ButtonSubjectProps> = (
                             style={{ backgroundColor }}
                         />
                     )}
-                    <span className={'ml-2 font-rubik font-semibold text-lg pl-2'}>{titleSubject}</span>
+                    <div className={'ml-2 font-rubik text-lg pl-2 md:text-2xl'}>{titleSubject}</div>
                 </button>
             )}
         </div>
