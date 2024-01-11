@@ -3,8 +3,9 @@ import { useDataStore } from '../store';
 import {useParams} from "react-router-dom";
 import {Header, Subject} from "../components/Header";
 import {quizReducer} from "../hooks/quizReducer.tsx";
-import {Quiz} from "../components/Quiz/Quiz.tsx";
-import {Score} from "../components/Quiz";
+import {Score, QuizChoice} from "../components/Quiz";
+import {backgroundColorIcon} from "../store/themeStore.tsx";
+
 
 const initialState = {
     currentQuestionIndex: 0,
@@ -13,7 +14,7 @@ const initialState = {
     isCorrect: false,
     score: 0
 }
-const backgroundColorIcon: string[] = ['#FFF1E9', '#E0FDEF','#EBF0FF','#F6E7FF'];
+
 
 export const QuizPage:FC = () => {
     const [state, dispatch] = useReducer(quizReducer, initialState);
@@ -43,7 +44,7 @@ export const QuizPage:FC = () => {
                     />
                 </Header>
                     {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
-                        <Quiz
+                        <QuizChoice
                             state={state}
                             quizIndex={quizIndex}
                             dispatch={dispatch}
