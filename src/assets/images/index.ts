@@ -9,3 +9,5 @@ export { default as MoonLight } from './icon-moon-light.svg';
 export { default as MoonDark } from './icon-moon-dark.svg';
 export { default as SunLight } from './icon-sun-light.svg';
 export { default as SunDark } from './icon-sun-dark.svg';
+export { default as IncorrectIcon} from './icon-incorrect.svg';
+export { default as CorrectIcon} from './icon-correct.svg';
