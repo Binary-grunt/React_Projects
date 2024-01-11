@@ -11,7 +11,7 @@ type QuizProps = {
     quizIndex: number,
     dispatch: (action: ActionType) => void
 }
-export const QuizChoice:FC<QuizProps> = ({state, quizIndex, dispatch}) => {
+export const QuizListChoice:FC<QuizProps> = ({state, quizIndex, dispatch}) => {
     const { quizzes } = useDataStore();
     const quiz = quizzes[quizIndex];
     const question = quiz.questions[state.currentQuestionIndex];
