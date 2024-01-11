@@ -19,7 +19,6 @@ export const Title:FC<Title>= ({content, contentBold, subTitle}) => {
                 </div>
                 {subTitle && <p style={{color: subTextColor}} className={'font-rubik italic'}>{subTitle}</p>}
             </div>
-
         </>
     );
 };
