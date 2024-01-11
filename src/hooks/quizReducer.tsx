@@ -1,4 +1,4 @@
-type InitialState = {
+export type InitialState = {
     currentQuestionIndex: number,
     selectedOption: string,
     isSubmit: boolean,
@@ -6,7 +6,7 @@ type InitialState = {
     score: number,
 };
 
-type ActionType =
+export type ActionType =
     | {type: 'SELECT_OPTION', payload: string}
     | {type: 'SUBMIT_ANSWER', payload: boolean }
     | {type: 'NEXT_QUESTION'}
