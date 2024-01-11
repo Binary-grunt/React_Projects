@@ -1,7 +1,7 @@
 import {FC} from "react";
-import {useThemeStore} from "../../store/themeStore.tsx";
-import correctAnswerIcon from './../../assets/images/icon-correct.svg'
-import incorrectAnswerIcon from './../../assets/images/icon-incorrect.svg'
+import {useThemeStore} from "../../store";
+import {CorrectIcon, IncorrectIcon} from  "../../assets/images";
+
 
 type ButtonQuizProps = {
     options: string[];
@@ -10,18 +10,14 @@ type ButtonQuizProps = {
     isCorrect: boolean | null;
     onChangeClick: (e:string) => void;
 };
+const letters = ['A','B','C','D'];
 export const InputQuiz:FC<ButtonQuizProps> = ({selectedOption, options, isSubmit, isCorrect, onChangeClick}) => {
     const { themeButton } = useThemeStore();
-    const letters = ['A','B','C','D'];
-
-
     const verifyColor = (option:string) => {
         if (isSubmit && selectedOption === option && isCorrect !== null) {
             return isCorrect ? 'ring-2 ring-green-400' : 'ring-2 ring-red-600';
-        }
-        return '';
+        } return '';
     };
-
     const verifyBackground = (option: string) => {
         if (isSubmit && selectedOption === option && isCorrect !== null){
             return isCorrect ? 'bg-green-400 text-slate-50 ': 'bg-red-600 text-slate-50' ;
@@ -53,8 +49,8 @@ export const InputQuiz:FC<ButtonQuizProps> = ({selectedOption, options, isSubmit
                         </div>
                     </div>
                     <div>
-                        {isSubmit && isCorrect && selectedOption === option && <img src={correctAnswerIcon} alt="correct-answer-icon"/>}
-                        {isSubmit && !isCorrect && selectedOption === option && <img src={incorrectAnswerIcon} alt="incorrect-answer-icon"/>}
+                        {isSubmit && isCorrect && selectedOption === option && <img src={CorrectIcon} alt="correct-answer-icon"/>}
+                        {isSubmit && !isCorrect && selectedOption === option && <img src={IncorrectIcon} alt="incorrect-answer-icon"/>}
                     </div>
 
                 </button>
