@@ -1,5 +1,5 @@
 export { InputQuiz } from "./InputQuiz";
 export { ProgressBar } from "./ProgressBar";
 export { QuestionQuiz } from "./QuestionQuiz";
-export {QuizChoice} from './QuizChoice.tsx'
+export { QuizListChoice } from './QuizListChoice.tsx'
 export {Score} from './Score.tsx';
