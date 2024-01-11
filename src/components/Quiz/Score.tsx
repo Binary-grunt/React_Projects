@@ -2,7 +2,6 @@
 import {FC} from "react";
 import {useThemeStore, useDataStore} from "../../store";
 import {Subject, Title} from "../Header";
-import {} from "../../store";
 import {ButtonSubmit} from "../Button";
 import {useNavigate} from "react-router-dom";
 
