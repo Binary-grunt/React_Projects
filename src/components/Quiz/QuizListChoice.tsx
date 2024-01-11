@@ -5,6 +5,7 @@ import {ButtonSubmit} from "../Button";
 import {useDataStore} from "../../store";
 import {FC, FormEvent} from "react";
 import {ActionType, InitialState} from "../../hooks/quizReducer.tsx";
+import {IncorrectIcon} from "../../assets/images";
 
 type QuizProps = {
     state: InitialState,
@@ -63,6 +64,11 @@ export const QuizListChoice:FC<QuizProps> = ({state, quizIndex, dispatch}) => {
                         content={'Next Question'}
                     />
                     }
+                    {state.showError &&
+                        <div className="font-rubik font-light flex flex-row items-center justify-center">
+                           <img src={IncorrectIcon} alt='Incorrect Icon' className={'pr-1'}/>
+                            Please select an answer
+                        </div>}
                 </form>
 
             </div>
