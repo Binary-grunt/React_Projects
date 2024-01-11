@@ -5,10 +5,10 @@ import '../css/BackgroundIcon.css';
 type BackgroundIconProps = {
     children: React.ReactNode;
 }
+
 export const BackGroundIcon: FC<BackgroundIconProps> = ({children}) => {
     const { backgroundColor, mobileIcon, tabletIcon, desktopIcon, textColor } = useThemeStore();
     const [backgroundStyle, setBackgroundStyle] = useState({});
-
 
 
     useEffect(() => {
