@@ -24,6 +24,7 @@ export const InputQuiz:FC<ButtonQuizProps> = ({selectedOption, options, isSubmit
         }
         return 'bg-gray-100 text-slate-600';
     }
+    const notSubmit = 'hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300';
 
     return (
         <>
@@ -32,19 +33,16 @@ export const InputQuiz:FC<ButtonQuizProps> = ({selectedOption, options, isSubmit
                     type='button'
                     key={index}
                     style={{ backgroundColor: themeButton }}
-                    className={`${verifyColor(option)} ${isSubmit ? 'cursor-not-allowed' :
-                        'hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300'}
-                        flex flex-row items-center place-content-between rounded-2xl my-2 p-3 shadow-lg 
-                        md:p-3 md:my-3 xl:p-5
-                    `}
+                    className={`${verifyColor(option)} 
+                    ${isSubmit ? 'cursor-not-allowed' : notSubmit} flex flex-row items-center place-content-between rounded-2xl my-2 p-3 shadow-lg md:p-3 md:my-3 xl:p-5`}
                     onClick={() => !isSubmit && onChangeClick(option)}
                 >
                     <div className={'flex flex-row items-center'}>
                         <div
-                            className={`${verifyBackground(option)} rounded-lg p-2 text-xl shadow-lg items-center font-rubik w-12 md:w-14 md:text-3xl md:h-13 xl:h-13`}>
-                            {letters[index % letters.length]}
+                            className={`${verifyBackground(option)} rounded-lg p-2 text-xl shadow-lg items-center font-rubik w-12 h-12 md:w-14 md:text-2xl md:h-14 xl:h-13`}>
+                            <p className={'mt-0.5 md:mt-1'}>{letters[index % letters.length]}</p>
                         </div>
-                        <div className="ml-2 pl-3 font-rubik text-xl md:text-3xl xl:pl-7">
+                        <div className="ml-2 pl-3 font-rubik text-xl md:text-2xl xl:pl-7">
                             {option}
                         </div>
                     </div>
