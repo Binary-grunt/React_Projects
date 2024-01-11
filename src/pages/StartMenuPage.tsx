@@ -22,14 +22,21 @@ export const StartMenuPage = () => {
 
     return (
         <>
-        <Header/>
-            <div className={'flex flex-col gap-10 pt-4 m-2'}>
-                <Title
-                    content={StartTitle.content}
-                    contentBold={StartTitle.contentBold}
-                    subTitle={StartTitle.subTitle}
-                />
-                <div className={"flex flex-col justify-center"}>
+            <div className={`flex-col flex justify-center mx-2 p-6
+                 md:px-14 md:pt-12 md:mx-3
+                 xl:pt-28 xl:mx-14 `}>
+                <div className={'flex flex-row-reverse'}>
+                    <Header/>
+                </div>
+                <div className={'xl:flex xl:flex-row xl:justify-between xl:w-12/12 xl:pt-20 xl:gap-18'}>
+                <div className={'py-10 pt-6 xl:py-0'}>
+                    <Title
+                        content={StartTitle.content}
+                        contentBold={StartTitle.contentBold}
+                        subTitle={StartTitle.subTitle}
+                    />
+                </div>
+                    <div className={'xl:pt-0 xl:w-6/12'}>
                     {quizzes.map((quiz, index) => (
                         <ButtonSubject
                             icon={quiz.icon}
@@ -39,6 +46,7 @@ export const StartMenuPage = () => {
                             onClickSubject={() => handleSubjectClick(index)}
                         />
                     ))}
+                    </div>
                 </div>
             </div>
         </>
