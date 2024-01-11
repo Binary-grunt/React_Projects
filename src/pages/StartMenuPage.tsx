@@ -1,7 +1,7 @@
-import {Title} from "../components/Header/Title.tsx";
-import {ButtonSubject} from "../components/Button/ButtonSubject.tsx";
-import {useDataStore} from "../store/dataStore.tsx";
-import {Header} from "../components/Header/Header.tsx";
+import {Title} from "../components/Header";
+import {ButtonSubject} from "../components/Button";
+import {useDataStore} from "../store";
+import {Header} from "../components/Header";
 import {useNavigate} from "react-router-dom";
 
 
