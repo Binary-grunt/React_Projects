@@ -25,7 +25,7 @@ export const Score: FC<ScoreFinalProps> = ({ score, backgroundColorIcon, quizInd
         <>
             <div className={`flex flex-col justify-items-center pt-10 
                         md:pt-14 xl:flex-row xl:gap-24 xl:pt-24`}>
-                <Title content={'Quiz completed'} contentBold={'You scored...'}/>
+                <Title content={'QuizChoice completed'} contentBold={'You scored...'}/>
                 <div className={'items-center justify-center flex-col flex '}>
                     <div className={` font-rubik shadow-lg rounded-xl items-center justify-center p-12 flex-col`}
                          style={{backgroundColor: themeButton}}>
