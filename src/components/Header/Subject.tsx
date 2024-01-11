@@ -9,8 +9,8 @@ export const Subject: FC <SubjectTitleType> = ({icon, title, backgroundColor}) =
     return (
         <>
             <div className={'flex flex-row content-center font-rubik font-normal items-center'}>
-                <img className={'rounded-lg p-2 mr-4 size-12 shadow-lg'} src={icon} alt={title} style={{backgroundColor }}/>
-                <h2 className={'text-xl'}>{title}</h2>
+                <img className={'rounded-lg p-2 mr-4 size-12 shadow-lg md:size-16 '} src={icon} alt={title} style={{backgroundColor }}/>
+                <h2 className={'text-xl md:text-3xl'}>{title}</h2>
             </div>
 
         </>
