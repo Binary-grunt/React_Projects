@@ -17,7 +17,7 @@ export const QuestionQuiz:FC<QuestionQuizProps> = (
                 >
                     Question {currentIndexQuestion + 1} of {quizQuestionLength}
                 </p>
-                <h2 className={'text-xl pt-5 font-rubik md:text-4xl'}>
+                <h2 className={'text-xl pt-3 font-rubik md:text-4xl'}>
                     {quizQuestion}
                 </h2>
             </div>
