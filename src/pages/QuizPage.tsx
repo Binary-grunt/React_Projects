@@ -52,7 +52,7 @@ export const QuizPage:FC = () => {
         dispatch({
             type: 'RESET',
             payload: {
-                currentQuestionIndex: 0,
+                currentQuestionIndex: 10,
                 selectedOption: '',
                 isSubmit: false,
                 isCorrect: false,
@@ -64,7 +64,9 @@ export const QuizPage:FC = () => {
 
     return (
         <>
-            <div className={'flex-col flex justify-center '}>
+            <div className={`flex-col flex justify-center mx-2 p-6
+                 md:px-14 md:pt-12 md:mx-3
+                 xl:pt-28 xl:mx-28`}>
                 <Header>
                     <Subject
                         icon={quiz.icon}
@@ -73,17 +75,22 @@ export const QuizPage:FC = () => {
                     />
                 </Header>
                     {quizzes.length > 0 && state.currentQuestionIndex < 10 ?
-                        <div className={'sm:flex flex-col justify-items-center mx-6 pt-14 md:p-10 '}>
-                            <QuestionQuiz
-                                subTextColor={subTextColor}
-                                currentIndexQuestion={state.currentQuestionIndex}
-                                quizQuestionLength={quiz.questions.length}
-                                quizQuestion={question.question}
-                            />
-                            <div className={'pt-2'}>
-                                <ProgressBar progress={state.currentQuestionIndex}/>
+                        <div className={`flex flex-col justify-items-center pt-10 
+                        md:pt-14
+                        xl:flex-row xl:gap-24 xl:pt-24`}>
+                            <div className={'xl:flex-row xl:w-6/12'}>
+                                <QuestionQuiz
+                                    subTextColor={subTextColor}
+                                    currentIndexQuestion={state.currentQuestionIndex}
+                                    quizQuestionLength={quiz.questions.length}
+                                    quizQuestion={question.question}
+                                />
+                                <div className={'pt-6 md:pt-10'}>
+                                    <ProgressBar progress={state.currentQuestionIndex}/>
+                                </div>
                             </div>
-                            <form onSubmit={handleNextQuestion} className={'flex flex-col pt-8'}>
+                            <form onSubmit={handleNextQuestion} className={`flex flex-col pt-10 
+                            md:pt-14 xl:pt-0 xl:w-6/12`}>
                                 <InputQuiz
                                     selectedOption={state.selectedOption}
                                     options={question.options}
