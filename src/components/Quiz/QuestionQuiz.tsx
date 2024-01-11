@@ -1,16 +1,17 @@
 import {FC} from "react";
+import {useThemeStore} from "../../store";
 
 type QuestionQuizProps = {
-    subTextColor: string,
     currentIndexQuestion: number,
     quizQuestionLength: number,
     quizQuestion: string,
 }
 export const QuestionQuiz:FC<QuestionQuizProps> = (
-    {subTextColor, currentIndexQuestion, quizQuestionLength, quizQuestion }) => {
+    {currentIndexQuestion, quizQuestionLength, quizQuestion }) => {
+    const {subTextColor} = useThemeStore();
     return (
         <>
-            <div className={'xl:'}>
+            <div>
                 <p style={{color: subTextColor}}
                    className={'font-rubik italic font-light md:text-2xl'}
                 >
