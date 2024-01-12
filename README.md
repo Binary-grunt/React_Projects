@@ -40,7 +40,6 @@ To run Devfinder on your local machine:
    ```bash
    npm start
    ```
-   This launches a development server on [http://localhost:3000](http://localhost:3000).
 
 ## Usage
 
