@@ -52,7 +52,7 @@ Contributions are welcome! If you have suggestions or find bugs, please open an 
 
 ## License
 
-Devfinder is open-sourced under the [MIT license](LICENSE.md).
+Devfinder is open-sourced under the [MIT license].
 
 ---
 
