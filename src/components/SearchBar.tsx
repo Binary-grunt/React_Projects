@@ -25,7 +25,11 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
         <>
             <form onSubmit={handleSubmit}
                   className={`flex flex-row justify-between items-center font-spacemono`}>
-                <img src={IconSearch} alt='Icon search' className={'size-fit pl-2'}/>
+                <img
+                    src={IconSearch}
+                    alt='Icon search'
+                    className={'size-fit pl-2'}
+                />
                 <input
                     type="text"
                     value={searchQuery}
@@ -33,11 +37,14 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
                     onChange={handleChange}
                     className={`w-full bg-none pl-3 focus:outline-none  ${secondaryBg} ${secondaryText}`}
                 />
-                {!result && <span className={'text-dev-red text-sm mr-2 font-bold'}>No results</span>}
+                {!result &&
+                    <span className={'text-dev-red text-sm mr-2 font-bold'}>
+                        No results
+                    </span>
+                }
                 <button
                     type='submit'
-                    className={'bg-dev-blue text-lightMode-white rounded-xl h-12 w-32'}
-                > Search </button>
+                    className={'bg-dev-blue text-lightMode-white rounded-xl h-12 w-32'}>Search</button>
             </form>
 
         </>
