@@ -1,1 +1,5 @@
-
+.fixed-width-div {
+    max-width: 1000px; /* Largeur maximale */
+    width: 100%; /* S'adapte à la largeur disponible */
+    margin: auto; /* Centre le div */
+}
