@@ -23,7 +23,7 @@ export type GitHubUserData = {
 
 export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
     const [userData, setUserData] = useState<GitHubUserData | null>(null);
-    const {inactiveText, secondaryBg} = useThemeStore();
+    const { secondaryBg} = useThemeStore();
 
     useEffect(() => {
             fetch(`https://api.github.com/users/${username}`)
@@ -44,11 +44,6 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
                     <PseudoGitHub userData={userData}/>
 
                     <div className={'lg:pl-48'}>
-                        <div className={` pb-8 content-start`}>
-                            <p className={`${inactiveText} leading-7 text-sm md:text-lg`}>
-                                {userData.bio ? userData.bio : 'This profile has no bio'}
-                            </p>
-                        </div>
                         <Stats userData={userData}/>
                         <Links userData={userData}/>
                     </div>
