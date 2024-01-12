@@ -19,10 +19,7 @@ export type GitHubUserData = {
     twitter_username: string;
     login: string;
     company:string;
-
-
 }
-
 
 export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
     const [userData, setUserData] = useState<GitHubUserData | null>(null);
@@ -52,14 +49,11 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
                                 {userData.bio ? userData.bio : 'This profile has no bio'}
                             </p>
                         </div>
-
                         <Stats userData={userData}/>
                         <Links userData={userData}/>
-
                     </div>
                 </div>
             }
-
         </>
     );
 
