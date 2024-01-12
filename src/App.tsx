@@ -7,7 +7,7 @@ import {SearchBar} from "./components/SearchBar.tsx";
 import {useState} from "react";
 
 const App = ()  => {
-    const {primaryBg} = useThemeStore();
+    const {primaryBg,secondaryBg} = useThemeStore();
     const [username, setUsername] = useState('');
 
     const handleSearch = (query:string) => {
@@ -16,10 +16,10 @@ const App = ()  => {
 
   return (
     <>
-        <div className={`${primaryBg} px-8 pt-10 h-screen`}>
+        <div className={`${primaryBg} px-8 pt-8 pb-5 h-screen`}>
             <Header/>
-          <div className={`${primaryBg} pt-12`}>
-              <div>
+          <div>
+              <div className={`${secondaryBg} mt-12 rounded-2xl shadow-xl p-2`}>
               <SearchBar onSearch={handleSearch}/>
               </div>
               <div className={'pt-4'}>
