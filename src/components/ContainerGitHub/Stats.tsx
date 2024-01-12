@@ -5,6 +5,7 @@ import {GitHubUserData} from "../../pages/GitHubUser.tsx";
 type StatsProps = {
     userData: GitHubUserData;
 }
+
 export const Stats:FC<StatsProps> = ({userData}) => {
     const {primaryBg, primaryText, secondaryText} = useThemeStore();
 
@@ -19,8 +20,12 @@ export const Stats:FC<StatsProps> = ({userData}) => {
             <div className={`${primaryBg} flex flex-row justify-center rounded-2xl py-4 md:gap-24 md:py-6`}>
                 {dataSections.map((section, index) => (
                     <div key={index} className={'flex flex-col items-center'}>
-                        <span className={`${primaryText} text-xs mx-3 md:text-sm`}>{section.label}</span>
-                        <span className={`${secondaryText} text-lg  font-bold pt-2 md:text-2xl`}>{section.value}</span>
+                        <span className={`${primaryText} text-xs mx-3 md:text-sm`}>
+                            {section.label}
+                        </span>
+                        <span className={`${secondaryText} text-lg  font-bold pt-2 md:text-2xl`}>
+                            {section.value}
+                        </span>
                     </div>
                 ))}
             </div>
