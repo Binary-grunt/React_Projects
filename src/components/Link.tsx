@@ -18,11 +18,11 @@ export const Links:FC<StatsProps> = ({userData}) => {
 
     return (
         <>
-            <div className={`flex flex-col pt-4`}>
+            <div className={`flex flex-col pt-4 md:grid md:grid-cols-2 md:pt-8 text-pretty`}>
                 {linkSections.map((section, index) => (
-                    <div key={index} className={'flex flex-row items-center  my-2'}>
+                    <div key={index} className={'flex flex-row items-center my-2 md:my-1'}>
                         <img src={section.label} alt={section.label} className={`w-5 ${!section.value ? 'opacity-50' : ''}`}/>
-                        <span className={`${inactiveText} ${!section.value ? 'opacity-40' : ''} text-sm  pl-4`}>{section.value ? section.value : 'Not Available'}</span>
+                        <span className={`${inactiveText} ${!section.value ? 'opacity-40' : ''} truncate hover:text-clip text-sm pl-4 md:text-lg`}>{section.value ? section.value : 'Not Available'}</span>
                     </div>
                 ))}
 
