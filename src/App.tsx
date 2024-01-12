@@ -16,7 +16,7 @@ const App = ()  => {
 
   return (
     <>
-        <div className={`${primaryBg} px-8 py-8 md:h-screen w-screen flex flex-col justify-center`}>
+        <div className={`${primaryBg} px-8 py-8  h-screen w-screen md:flex md:flex-col md:justify-center`}>
             <div className={' fixed-width-div md:px-20 lg:px-0'}>
             <Header/>
             <div className={`${secondaryBg} mt-12 rounded-2xl shadow-xl p-2  `}>
