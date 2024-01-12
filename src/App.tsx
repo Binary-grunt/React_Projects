@@ -16,13 +16,15 @@ const App = ()  => {
 
   return (
     <>
-        <div className={`${primaryBg} px-8 py-8 h-screen md:pt-44 md:px-24`}>
+        <div className={`${primaryBg} px-8 py-8 md:h-screen w-screen flex flex-col justify-center`}>
+            <div className={' fixed-width-div md:px-20 lg:px-0'}>
             <Header/>
             <div className={`${secondaryBg} mt-12 rounded-2xl shadow-xl p-2  `}>
                 <SearchBar onSearch={handleSearch}/>
             </div>
             <div className={'pt-4 md:pt-6'}>
               <GitHubUser username={username}/>
+            </div>
             </div>
         </div>
     </>
