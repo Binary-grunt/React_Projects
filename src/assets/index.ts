@@ -1,4 +1,5 @@
 export {default as IconLocation} from './icon-location.svg';
+export {default as IconCompany} from './icon-company.svg';
 export {default as IconSearch} from './icon-search.svg';
 export {default as IconTwitter} from './icon-twitter.svg';
 export {default as IconWebsite} from './icon-website.svg';
