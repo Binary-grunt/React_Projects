@@ -8,6 +8,7 @@ export default {
     colors: {
       'dev-blue': '#0079FF',
       'dev-red': '#F74646',
+      'dev-light-blue': '#60ABFF',
       lightMode: {
         'white': '#FEFEFE',
         'light-gray': '#F6F8FF',
