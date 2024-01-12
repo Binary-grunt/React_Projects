@@ -24,7 +24,7 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
     return (
         <>
             <form onSubmit={handleSubmit}
-                  className={`flex flex-row justify-between items-center font-spacemono p-1`}>
+                  className={`flex flex-row justify-between items-center font-spacemono px-2`}>
                 <img
                     src={IconSearch}
                     alt='Icon search'
@@ -44,7 +44,7 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
                 }
                 <button
                     type='submit'
-                    className={'bg-dev-blue text-lightMode-white text-lg rounded-xl h-12 w-32'}>Search</button>
+                    className={'bg-dev-blue text-lightMode-white text-lg rounded-xl h-14 w-32'}>Search</button>
             </form>
 
         </>
