@@ -7,6 +7,7 @@ export default {
   theme: {
     colors: {
       'dev-blue': '#0079FF',
+      'dev-red': '#F74646',
       lightMode: {
         'white': '#FEFEFE',
         'light-gray': '#F6F8FF',
