@@ -1,6 +1,6 @@
-import {useThemeStore} from "../store/themeStore.tsx";
+import {useThemeStore} from "../../store/themeStore.tsx";
 import {FC} from "react";
-import {GitHubUserData} from "./GitHubUser.tsx";
+import {GitHubUserData} from "../../pages/GitHubUser.tsx";
 
 type StatsProps = {
     userData: GitHubUserData;
