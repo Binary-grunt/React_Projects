@@ -24,18 +24,18 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
     return (
         <>
             <form onSubmit={handleSubmit}
-                  className={`flex flex-row justify-between items-center font-spacemono`}>
+                  className={`flex flex-row justify-between items-center font-spacemono p-1`}>
                 <img
                     src={IconSearch}
                     alt='Icon search'
-                    className={'size-fit pl-2'}
+                    className={'size-fit'}
                 />
                 <input
                     type="text"
                     value={searchQuery}
                     placeholder='Search GitHub username...'
                     onChange={handleChange}
-                    className={`w-full bg-none pl-3 focus:outline-none  ${secondaryBg} ${secondaryText}`}
+                    className={`w-full bg-none text-sm md:text-lg pl-2 focus:outline-none  ${secondaryBg} ${secondaryText}`}
                 />
                 {!result &&
                     <span className={'text-dev-red text-sm mr-2 font-bold'}>
@@ -44,7 +44,7 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
                 }
                 <button
                     type='submit'
-                    className={'bg-dev-blue text-lightMode-white rounded-xl h-12 w-32'}>Search</button>
+                    className={'bg-dev-blue text-lightMode-white text-lg rounded-xl h-12 w-32'}>Search</button>
             </form>
 
         </>
