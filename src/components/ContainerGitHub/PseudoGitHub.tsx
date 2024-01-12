@@ -8,7 +8,7 @@ type PseudoGitHubProps = {
 
 /**
  * Formats a date string to a more readable format.
- * @param {string} dateString - The date string to format.
+ * @param dateString - The date string to format.
  * @returns {string} - Formatted date string.
  */
 const formatDate = (dateString: string): string => {
