@@ -1,6 +1,11 @@
 import { useThemeStore } from "../store/themeStore.tsx";
 
+/**
+ * Header component for the application.
+ * Displays the application's title and a button to toggle the theme.
+ */
 export const Header = () => {
+    // Extracting theme related states and functions from the theme store
     const {toggleTheme, iconTheme, themeText, primaryText, secondaryText} = useThemeStore();
 
     return (
