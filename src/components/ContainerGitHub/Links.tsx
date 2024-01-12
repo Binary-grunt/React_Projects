@@ -6,9 +6,15 @@ import {IconCompany, IconLocation, IconTwitter, IconWebsite} from "../../assets"
 type LinksProps = {
     userData: GitHubUserData;
 }
+
+/**
+ * Displays links and social media information of a GitHub user.
+ * @param  userData - Data of the GitHub user.
+ */
 export const Links:FC<LinksProps> = ({userData}) => {
     const {inactiveText} = useThemeStore();
 
+    // Define the link sections with corresponding icons
     const linkSections = [
         { label: IconLocation, value: userData.location },
         { label: IconTwitter, value: userData.twitter_username },
