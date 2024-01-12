@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import {IconMoon, IconSun} from "./../assets";
+
 export enum ThemeLight {
     bg_light_gray = 'bg-lightMode-light-gray',
     bg_light_white = 'bg-lightMode-white',
@@ -25,6 +26,7 @@ type ThemeStore = {
     inactiveText: string;
     toggleTheme: () => void;
 }
+
 export const useThemeStore = create<ThemeStore>((set) => ({
     theme: 'light',
     iconTheme: IconMoon,
