@@ -2,9 +2,11 @@ import {useState, useEffect, FC} from 'react';
 import {useThemeStore} from "../store/themeStore.tsx";
 import {Stats, Links, PseudoGitHub} from "../components/ContainerGitHub";
 
+// Types for the props and user data structure.
 type GitHubUserProps = {
     username: string,
 }
+
 
 export type GitHubUserData = {
     name: string;
@@ -21,10 +23,17 @@ export type GitHubUserData = {
     company:string;
 }
 
+/**
+ * Component to fetch and display GitHub user data.
+ * @param username - GitHub username to fetch data for.
+ */
 export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
+    // State to store GitHub user data
     const [userData, setUserData] = useState<GitHubUserData | null>(null);
+    // Accessing theme store for theming purposes
     const { secondaryBg} = useThemeStore();
 
+    // Effect to fetch user data from GitHub API
     useEffect(() => {
             fetch(`https://api.github.com/users/${username}`)
                 .then(response => response.json())
@@ -33,6 +42,7 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
 
     }, [username]);
 
+    // Display loading text while fetching data
     if (!userData) {
         return <p>Loading...</p>;
     }
