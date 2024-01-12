@@ -18,14 +18,12 @@ const App = ()  => {
     <>
         <div className={`${primaryBg} px-8 py-8 h-screen md:pt-44 md:px-24`}>
             <Header/>
-          <div className={''}>
-              <div className={`${secondaryBg} mt-12 rounded-2xl shadow-xl p-2  `}>
-              <SearchBar onSearch={handleSearch}/>
-              </div>
-              <div className={'pt-4 md:pt-6'}>
+            <div className={`${secondaryBg} mt-12 rounded-2xl shadow-xl p-2  `}>
+                <SearchBar onSearch={handleSearch}/>
+            </div>
+            <div className={'pt-4 md:pt-6'}>
               <GitHubUser username={username}/>
-              </div>
-          </div>
+            </div>
         </div>
     </>
   )
