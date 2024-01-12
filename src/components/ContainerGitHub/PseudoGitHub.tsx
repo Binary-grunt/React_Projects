@@ -1,19 +1,30 @@
-import {GitHubUserData} from "../../pages/GitHubUser.tsx";
-import {useThemeStore} from "../../store/themeStore.tsx";
-import {FC} from "react";
+import { GitHubUserData } from "../../pages/GitHubUser.tsx";
+import { useThemeStore } from "../../store/themeStore.tsx";
+import { FC } from "react";
 
 type PseudoGitHubProps = {
     userData: GitHubUserData
 }
 
+/**
+ * Formats a date string to a more readable format.
+ * @param {string} dateString - The date string to format.
+ * @returns {string} - Formatted date string.
+ */
 const formatDate = (dateString: string): string => {
     const dateObject = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
     return dateObject.toLocaleDateString('en-US', options);
 }
 
+/**
+ * Component to display a pseudo GitHub user profile.
+ * @param  userData - The GitHub user data to display.
+ */
 export const PseudoGitHub: FC<PseudoGitHubProps> = ({ userData }) => {
+    // Accessing theme store for theming purposes
     const { primaryText, secondaryText, inactiveText } = useThemeStore();
+    // Formatting the user's account creation date
     const formattedDate = formatDate(userData.created_at);
 
     return (
@@ -32,7 +43,7 @@ export const PseudoGitHub: FC<PseudoGitHubProps> = ({ userData }) => {
                     <span className="text-dev-blue pb-1 md:text-lg md:pt-2">
                         @{userData.login}
                     </span>
-                    <p className={`${primaryText} text-sm md:text-lg `}>
+                    <p className={`${primaryText} text-sm md:text-lg`}>
                         Joined {formattedDate}
                     </p>
                 </div>
@@ -44,6 +55,3 @@ export const PseudoGitHub: FC<PseudoGitHubProps> = ({ userData }) => {
         </div>
     );
 };
-
-
-
