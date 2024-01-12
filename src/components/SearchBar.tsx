@@ -6,18 +6,40 @@ type SearchBarProps = {
     onSearch: (searchQuery: string) => void
 }
 
+/**
+ * SearchBar component allowing users to search GitHub usernames.
+ *
+ * This component maintains its own state for the search query and the search result status.
+ * It uses the `onSearch` prop to communicate the search query to parent components.
+ */
+
 export const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [result, setResult] = useState(true);
     const { secondaryText, secondaryBg } = useThemeStore();
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setSearchQuery(e.target.value);
+    /**
+     * Updates the search query state and resets the result state on input change.
+     *
+     * @param event
+     */
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setSearchQuery(event.target.value);
         setResult(true);
     }
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+
+    /**
+     * Handles the submission of the search form.
+     *
+     * It prevents the default form submission action, checks if the search query is not empty,
+     * and calls the `onSearch` prop function with the current query. If the query is empty,
+     * it sets the result state to false for indicating no results.
+     *
+     * @param event
+     */
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         searchQuery ? onSearch(searchQuery) : setResult(false);
     };
 
