@@ -45,7 +45,7 @@ export const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
             )}
             <button
                 type="submit"
-                className="bg-dev-blue hover:bg-dev-light-blue text-lightMode-white text-lg font-semibold rounded-xl h-14 w-28 md:h-14 md:w-36 transition duration-200"
+                className="bg-dev-blue hover:bg-dev-light-blue text-lightMode-white text-lg font-semibold rounded-xl h-14 w-2 md:h-14 md:w-36 transition duration-200"
             >
                 Search
             </button>
