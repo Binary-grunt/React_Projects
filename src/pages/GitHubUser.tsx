@@ -1,8 +1,6 @@
 import {useState, useEffect, FC} from 'react';
 import {useThemeStore} from "../store/themeStore.tsx";
-import {Stats} from "./Stats.tsx";
-import {Links} from "./Link.tsx";
-
+import {Stats, Links, PseudoGitHub} from "../components/ContainerGitHub";
 
 type GitHubUserProps = {
     username: string,
@@ -24,16 +22,11 @@ export type GitHubUserData = {
 
 
 }
-const formatDate = (dateString: string): string => {
-    const dateObject = new Date(dateString);
-    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
-    return dateObject.toLocaleDateString('en-US', options);
-}
 
 
 export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
     const [userData, setUserData] = useState<GitHubUserData | null>(null);
-    const {primaryText, secondaryText, inactiveText, secondaryBg} = useThemeStore();
+    const {inactiveText, secondaryBg} = useThemeStore();
 
     useEffect(() => {
             fetch(`https://api.github.com/users/${username}`)
@@ -46,35 +39,23 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
     if (!userData) {
         return <p>Loading...</p>;
     }
-    const formattedDate: string = formatDate(userData.created_at);
 
     return (
         <>
             {username &&
                 <div className={`${secondaryBg} font-spacemono rounded-xl shadow-2xl px-8 py-8 md:px-10 md:py-12 `}>
-                    <div className={'flex flex-row pb-9'}>
-                        <img src={userData.avatar_url} alt='Avatar' className={'rounded-full size-24 md:size-36'}/>
-                        <div className={'flex flex-col items-start pl-5 md:pl-14 lg:pl-12'}>
-                            <span className={`${secondaryText} font-bold text-2xl md:text-4xl md:pt-4`}>{userData.name}</span>
-                            <span className={'text-dev-blue pb-2 md:text-lg md:pt-2'}>@{userData.login}</span>
-                            <p className={`${primaryText} text-sm md:text-lg`}>Joined {formattedDate}</p>
-                        </div>
-                    </div>
+                    <PseudoGitHub userData={userData}/>
+
                     <div className={'lg:pl-48'}>
                         <div className={` pb-8 content-start`}>
                             <p className={`${inactiveText} leading-7 text-sm md:text-lg`}>
                                 {userData.bio ? userData.bio : 'This profile has no bio'}
                             </p>
                         </div>
-                        <div>
-                        <Stats userData={userData}/>
-                        </div>
-                        <div>
-                            <Links userData={userData}/>
-                        </div>
-                        <div>
 
-                        </div>
+                        <Stats userData={userData}/>
+                        <Links userData={userData}/>
+
                     </div>
                 </div>
             }
