@@ -10,6 +10,7 @@ type StatsProps = {
  * Displays statistics about a GitHub user, such as repositories, followers, and following.
  * @param userData - Data of the GitHub user.
  */
+
 export const Stats:FC<StatsProps> = ({userData}) => {
     const {primaryBg, primaryText, secondaryText} = useThemeStore();
 
