@@ -31,7 +31,7 @@ export const SearchBar:FC<SearchBarProps> = ({onSearch}) => {
                     value={searchQuery}
                     placeholder='Search GitHub username...'
                     onChange={handleChange}
-                    className={`w-full bg-none pl-3 focus:outline-none ${secondaryBg} ${secondaryText}`}
+                    className={`w-full bg-none pl-3 focus:outline-none  ${secondaryBg} ${secondaryText}`}
                 />
                 {!result && <span className={'text-dev-red text-sm mr-2 font-bold'}>No results</span>}
                 <button
