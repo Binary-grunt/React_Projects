@@ -30,8 +30,8 @@ export const useThemeStore = create<ThemeStore>((set) => ({
     iconTheme: IconMoon,
     themeText: 'DARK',
     primaryBg: ThemeLight.bg_light_gray,
-    secondaryBg: ThemeLight.bg_light_white,
     primaryText: ThemeLight.text_gray,
+    secondaryBg: ThemeLight.bg_light_white,
     secondaryText: ThemeLight.text_black,
     inactiveText: ThemeLight.inactive_gray,
 
