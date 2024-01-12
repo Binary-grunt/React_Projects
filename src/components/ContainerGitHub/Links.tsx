@@ -3,10 +3,10 @@ import {FC} from "react";
 import {GitHubUserData} from "../../pages/GitHubUser.tsx";
 import {IconCompany, IconLocation, IconTwitter, IconWebsite} from "../../assets";
 
-type StatsProps = {
+type LinksProps = {
     userData: GitHubUserData;
 }
-export const Links:FC<StatsProps> = ({userData}) => {
+export const Links:FC<LinksProps> = ({userData}) => {
     const {inactiveText} = useThemeStore();
 
     const linkSections = [
@@ -18,7 +18,7 @@ export const Links:FC<StatsProps> = ({userData}) => {
 
     return (
         <>
-            <div className={`flex flex-col pt-4 md:grid md:grid-cols-2 md:pt-8 text-pretty`}>
+            <div className={`flex flex-col pt-4 md:grid md:grid-cols-2 md:gap-4 md:pt-8`}>
                 {linkSections.map((section, index) => (
                     <div key={index} className={'flex flex-row items-center my-2 md:my-1'}>
                         <img
@@ -26,7 +26,7 @@ export const Links:FC<StatsProps> = ({userData}) => {
                             alt={section.label}
                             className={`w-5 ${!section.value ? 'opacity-50' : ''}`}
                         />
-                        <span className={`${inactiveText} ${!section.value ? 'opacity-40' : ''} truncate hover:text-clip text-sm pl-4 md:text-lg`}>
+                        <span className={`${inactiveText} ${!section.value ? 'opacity-40' : ''} text-sm pl-2 md:text-base truncate`}>
                             {section.value ? section.value : 'Not Available'}
                         </span>
                     </div>
