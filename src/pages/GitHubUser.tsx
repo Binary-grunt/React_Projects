@@ -40,7 +40,7 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
     return (
         <>
             {username &&
-                <div className={`${secondaryBg} font-spacemono rounded-xl shadow-2xl px-8 py-8 md:px-10 md:py-12 `}>
+                <div className={`${secondaryBg} font-spacemono rounded-xl shadow-2xl px-8 py-8 md:px-10 md:py-12 lg:flex-shrink-0  `}>
                     <PseudoGitHub userData={userData}/>
 
                     <div className={'lg:pl-48'}>
