@@ -1,7 +1,7 @@
-import {useThemeStore} from "../store/themeStore.tsx";
+import {useThemeStore} from "../../store/themeStore.tsx";
 import {FC} from "react";
-import {GitHubUserData} from "./GitHubUser.tsx";
-import {IconCompany, IconLocation, IconTwitter, IconWebsite} from "../assets";
+import {GitHubUserData} from "../../pages/GitHubUser.tsx";
+import {IconCompany, IconLocation, IconTwitter, IconWebsite} from "../../assets";
 
 type StatsProps = {
     userData: GitHubUserData;
