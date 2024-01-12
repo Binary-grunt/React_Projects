@@ -1,6 +1,6 @@
 
 import './css/App.css'
-import {GitHubUser} from "./components/GitHubUser.tsx";
+import {GitHubUser} from "./pages/GitHubUser.tsx";
 import {Header} from "./components/Header.tsx";
 import {useThemeStore} from "./store/themeStore.tsx";
 import {SearchBar} from "./components/SearchBar.tsx";
