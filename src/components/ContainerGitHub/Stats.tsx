@@ -23,7 +23,7 @@ export const Stats:FC<StatsProps> = ({userData}) => {
                         <span className={`${primaryText} text-xs mx-3 md:text-sm`}>
                             {section.label}
                         </span>
-                        <span className={`${secondaryText} text-lg  font-bold pt-2 md:text-2xl`}>
+                        <span className={`${secondaryText} text-lg font-bold pt-2 md:text-2xl`}>
                             {section.value}
                         </span>
                     </div>
