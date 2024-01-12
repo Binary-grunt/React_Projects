@@ -20,14 +20,15 @@ export const PseudoGitHub:FC<PseudoGitHubProps> = ({userData}) => {
         <>
             <div className={'flex flex-row pb-9'}>
                 <img src={userData.avatar_url} alt='Avatar' className={'rounded-full size-24 md:size-36'}/>
-                <div className={'flex flex-col items-start pl-5 md:pl-14 lg:pl-12'}>
-                    <span className={`${secondaryText} font-bold text-2xl md:text-4xl md:pt-4`}>
+                <div className={`flex flex-col items-start justify-center pl-5 
+                md:pl-14 lg:pl-12 lg:grid lg:grid-cols-2 lg:justify-between lg:items-center `}>
+                    <span className={`${secondaryText} font-bold text-2xl md:text-4x   `}>
                         {userData.name}
                     </span>
-                    <span className={'text-dev-blue pb-2 md:text-lg md:pt-2'}>
+                    <span className={'text-dev-blue pb-1 md:text-lg md:pt-2 lg:order-last'}>
                         @{userData.login}
                     </span>
-                    <p className={`${primaryText} text-sm md:text-lg`}>
+                    <p className={`${primaryText} text-sm md:text-lg `}>
                         Joined {formattedDate}
                     </p>
                 </div>
