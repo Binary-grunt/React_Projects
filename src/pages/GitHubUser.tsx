@@ -42,6 +42,7 @@ export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
 
     }, [username]);
 
+
     // Display loading text while fetching data
     if (!userData) {
         return <p>Loading...</p>;
