@@ -54,7 +54,7 @@ export const GitHubUser:FC<GitHubUserProps> = ({ username }) => {
                 <div className={`${secondaryBg} font-spacemono rounded-xl shadow-2xl px-8 py-8 md:px-10 md:py-12 lg:flex-shrink-0  `}>
                     <PseudoGitHub userData={userData}/>
 
-                    <div className={'lg:pl-48'}>
+                    <div className={'lg:pl-52'}>
                         <Stats userData={userData}/>
                         <Links userData={userData}/>
                     </div>
