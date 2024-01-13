@@ -27,7 +27,7 @@ export type GitHubUserData = {
  * Component to fetch and display GitHub user data.
  * @param username - GitHub username to fetch data for.
  */
-export const GitHubUser:FC<GitHubUserProps> =({ username }) => {
+export const GitHubUser:FC<GitHubUserProps> = ({ username }) => {
     // State to store GitHub user data
     const [userData, setUserData] = useState<GitHubUserData | null>(null);
     // Accessing theme store for theming purposes
