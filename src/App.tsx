@@ -3,7 +3,7 @@ import { GitHubUser } from "./pages/GitHubUser.tsx";
 import { Header } from "./components/Header.tsx";
 import { useThemeStore } from "./store/themeStore.tsx";
 import { SearchBar } from "./components/SearchBar.tsx";
-import { useState } from "react";
+import {useCallback, useState} from "react";
 
 /**
  * Main application component.
@@ -20,9 +20,9 @@ const App = () => {
      * Handles search operations.
      * @param query - The search query string.
      */
-    const handleSearch = (query: string) => {
+    const handleSearch = useCallback((query: string) => {
         setUsername(query);
-    }
+    }, []);
 
     return (
         <>
