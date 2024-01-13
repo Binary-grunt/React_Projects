@@ -1,22 +1,30 @@
-import { useState } from 'react'
 import './App.css'
+import {useThemeStore} from "./store/themeStore.tsx";
+import {ButtonCheck} from "./components/ButtonCheck.tsx";
+import {Header} from "./components/Header.tsx";
 
 export const App = () => {
-  const [count, setCount] = useState(0)
+  const {themeProps, imageBgMobile} = useThemeStore();
+
+    const backgroundStyle = {
+        backgroundImage: `url(${imageBgMobile})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+    };
 
   return (
     <>
-      <div className="card font-josefin">
+      <div style={backgroundStyle}className={`${themeProps.primaryBg}`}>
+          <Header/>
       <h1>Vite + React</h1>
-      <div >
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div>
+          <ButtonCheck/>
+
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p className="text-light-theme-dark-grayish-blue">
         Click on the Vite and React logos to learn more
       </p>
       </div>
