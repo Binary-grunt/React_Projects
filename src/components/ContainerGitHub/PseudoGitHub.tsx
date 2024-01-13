@@ -31,13 +31,13 @@ export const PseudoGitHub: FC<PseudoGitHubProps> = ({ userData }) => {
 
     return (
         <div className="pb-9 flex flex-col">
-            <div className="flex flex-row items-center gap-4 lg:flex-row">
+            <div className="flex flex-row items-center gap-4 lg:flex-row lg:gap-12">
                 <img
                     src={userData.avatar_url}
                     alt="Avatar"
                     className="rounded-full w-24 h-24 md:w-36 md:h-36 lg:w-40 lg:h-40"
                 />
-                <div className="flex flex-col items-start pl-4 lg:flex-grow">
+                <div className="flex flex-col items-start lg:flex-grow">
                     <span className={`${secondaryText} font-bold text-2xl md:text-4xl`}>
                         {userData.name}
                     </span>
@@ -49,7 +49,7 @@ export const PseudoGitHub: FC<PseudoGitHubProps> = ({ userData }) => {
                     </p>
                 </div>
             </div>
-            <p className={`${inactiveText} leading-7 text-sm mt-4 md:text-lg lg:pl-48`}>
+            <p className={`${inactiveText} leading-7 text-sm mt-4 md:text-lg lg:pl-52`}>
                 {userData.bio ? userData.bio : 'This profile has no bio'}
             </p>
         </div>
