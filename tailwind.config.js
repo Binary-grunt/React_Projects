@@ -25,7 +25,7 @@ export default {
           'light-grayish-blue': '#C8CBE7',
           'dark-grayish-blue': '#5B5E7E',
           'very-dark-grayish-blue': '#4D5067',
-        }
+        },
       },
       // Setting custom fonts
       fontFamily: {
