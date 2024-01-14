@@ -1,8 +1,8 @@
 import {FC} from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useThemeStore } from "../store/themeStore";
-import {ITodoInput, TodoSchema} from "../models/todoModel.ts";
+import { useThemeStore } from "../../store/themeStore.tsx";
+import {ITodoInput, TodoSchema} from "../../models/todoModel.ts";
 
 type AddTodoFormProps = {
     onAddTodo: (todoText: string) => void;
