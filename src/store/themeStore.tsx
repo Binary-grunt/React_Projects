@@ -10,7 +10,6 @@ import {
     CircleLight, CircleDark
 } from "../assets/images";
 
-
 // Define a structure for theme properties
 type ThemeProperties = {
     primaryBg: string;
