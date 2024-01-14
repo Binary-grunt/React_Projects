@@ -1,8 +1,8 @@
 import {FC} from "react";
-import {ITodo} from "../App.tsx";
 import {IconCheck, IconCross} from "../assets/images";
 import {useThemeStore} from "../store/themeStore.tsx";
 import {Pagination} from "./Pagination.tsx";
+import {ITodo} from "../pages/Todopages.tsx";
 
 type TodoListProps = {
     todos: ITodo[];
