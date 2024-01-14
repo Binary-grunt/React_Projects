@@ -1,4 +1,4 @@
-import {useThemeStore} from "../store/themeStore.tsx";
+import {useThemeStore} from "../../store/themeStore.tsx";
 import {FC, ReactNode} from "react";
 
 type PaginationProps = {
@@ -7,11 +7,11 @@ type PaginationProps = {
     children?:ReactNode;
 }
 
-export const Pagination:FC<PaginationProps> = ({notChecked, onClearCheck, children}) => {
+export const FooterTodo:FC<PaginationProps> = ({notChecked, onClearCheck, children}) => {
     const {themeProps} = useThemeStore();
     return (
         <>
-            <div className={`${themeProps.secondaryText} h-16 flex flex-row items-center justify-between mx-7`}>
+            <div className={`${themeProps.secondaryText} h-16 flex flex-row items-center justify-between mx-7 mb-1`}>
                 <div>{notChecked} items left</div>
                 {children}
                 <button onClick={onClearCheck}>Clear Completed</button>
