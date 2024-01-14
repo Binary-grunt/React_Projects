@@ -5,26 +5,25 @@ import {Header} from "./components/Header.tsx";
 import {useState} from "react";
 import {ListTodo} from "./components/ListTodo.tsx";
 
-
 export type ITodo = {
     id: number;
     text: string;
     checked: boolean;
 }
 
+const uniqueNumber = Date.now() + Math.random();
 
 export const App = () => {
   const {themeProps, imageBgMobile} = useThemeStore();
   const [todos, setTodos] = useState<ITodo[]>([]);
-  const [nextId, setNextId] = useState(1);
 
   const backgroundStyle = {
         backgroundImage: `url(${imageBgMobile})`,
   };
 
+
   const addTodoHandler = (text: string) => {
-        setTodos(prevTodos => [...prevTodos, { id: nextId, text, checked: false }]);
-        setNextId(nextId + 1);
+        setTodos(prevTodos => [...prevTodos, { id: uniqueNumber, text, checked: false }]);
   };
   const deleteTodoHandler = (id: number) => setTodos(todos.filter(todo => todo.id !== id));
 
@@ -33,7 +32,6 @@ export const App = () => {
             todo.id === id ? { ...todo, checked: !todo.checked } : todo
         ));
   };
-
 
   return (
     <>
