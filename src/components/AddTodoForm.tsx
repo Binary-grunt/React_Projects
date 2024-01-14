@@ -27,7 +27,7 @@ export const AddTodoForm:FC<AddTodoFormProps> = ({onAddTodo}) => {
                     <input
                         {...register('newTodo', { required: true })}
                         placeholder="Add a new task"
-                        className={"ml-3 "}
+                        className={`ml-3 ${themeProps.secondaryBg}`}
                     />
                     <button type="submit" className="ml-2"></button>
                 </form>
