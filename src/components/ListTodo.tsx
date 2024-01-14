@@ -13,7 +13,7 @@ export const ListTodo: FC<TodoListProps> = ({  todos, onDeleteTodo, onCheckTodo 
     const {themeProps, checkIcon} = useThemeStore();
 
     return (
-        <div className={`${themeProps.secondaryBg} rounded-xl`}>
+        <div className={`${themeProps.secondaryBg} rounded-xl mt-40`}>
             <ul>
                 {todos.map(todo => (
                     <>
