@@ -8,7 +8,7 @@ type AddTodoFormProps = {
     onAddTodo: (todoText: string) => void;
 };
 
-export const AddTodoForm:FC<AddTodoFormProps> = ({onAddTodo}) => {
+export const AddTodoInput:FC<AddTodoFormProps> = ({onAddTodo}) => {
     const { themeProps, checkIcon } = useThemeStore();
     const { register, handleSubmit, reset, formState: { errors } } = useForm<ITodoInput>({
         resolver: zodResolver(TodoSchema)
@@ -21,7 +21,7 @@ export const AddTodoForm:FC<AddTodoFormProps> = ({onAddTodo}) => {
 
     return (
         <>
-            <div className={`${themeProps.secondaryBg} h-14 flex flex-row items-center rounded-lg`}>
+            <div className={`${themeProps.secondaryBg} h-14 flex flex-row items-center rounded-md`}>
                 <form onSubmit={handleSubmit(onSubmit)} className='pl-5 flex flex-row items-center'>
                     <img src={checkIcon} className='w-6 h-6' />
                     <input
