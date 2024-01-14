@@ -5,11 +5,10 @@ export const Header = () => {
     const {toggleTheme, iconTheme} = useThemeStore()
     return (
         <>
-            <div>
-                <img src={TodoIcon}/>
+            <div className={'flex flex-row justify-between py-10'}>
+                <img src={TodoIcon} className={'size-1/3'}/>
                 <button onClick={toggleTheme}>
                     <img src={iconTheme}/>
-                    Test
                 </button>
             </div>
         </>
