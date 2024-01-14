@@ -6,9 +6,9 @@ export const Header = () => {
     return (
         <>
             <div className={'flex flex-row justify-between py-10'}>
-                <img src={TodoIcon} className={'size-1/3'}/>
+                <img src={TodoIcon} className={'size-1/3'} alt="Logo Todo website"/>
                 <button onClick={toggleTheme}>
-                    <img src={iconTheme}/>
+                    <img src={iconTheme} alt="Switch Theme Button"/>
                 </button>
             </div>
         </>
