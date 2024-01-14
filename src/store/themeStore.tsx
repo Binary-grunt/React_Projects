@@ -1,6 +1,15 @@
 import { create } from 'zustand';
-import {IconMoon, IconSun, BgMobileLight, BgMobileDark, BgDeskTopLight, BgDeskTopDark} from "../assets/images";
 import {themes} from "../constants/themeConstants.ts";
+import {
+    IconMoon,
+    IconSun,
+    BgMobileLight,
+    BgMobileDark,
+    BgDeskTopLight,
+    BgDeskTopDark,
+    CircleLight, CircleDark
+} from "../assets/images";
+
 
 // Define a structure for theme properties
 type ThemeProperties = {
@@ -15,6 +24,7 @@ type ThemeProperties = {
 type ThemeStore = {
     theme: 'light' | 'dark';
     iconTheme: string;
+    checkIcon: string;
     imageBgMobile: string;
     imageBgDesktop: string;
     themeProps: ThemeProperties;
@@ -24,12 +34,14 @@ type ThemeStore = {
 export const useThemeStore = create<ThemeStore>((set) => ({
     theme: 'light',
     iconTheme: IconMoon,
+    checkIcon: CircleLight,
     imageBgDesktop: BgDeskTopLight,
     imageBgMobile: BgMobileLight,
     themeProps: themes.light,
     toggleTheme: () => set(state => ({
         theme: state.theme === 'light' ? 'dark' : 'light',
         iconTheme: state.theme === 'light' ? IconSun : IconMoon,
+        checkIcon: state.theme === 'light' ? CircleDark : CircleLight,
         imageBgMobile: state.theme === 'light' ? BgMobileDark : BgMobileLight,
         imageBgDesktop: state.theme === 'light' ? BgDeskTopDark : BgDeskTopLight,
         themeProps: state.theme === 'light' ? themes.dark : themes.light,
