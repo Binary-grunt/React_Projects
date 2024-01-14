@@ -1,6 +1,6 @@
 import {useCallback, useState} from "react";
-import {AddTodoForm} from "../components/AddTodoForm.tsx";
-import {ListTodo} from "../components/ListTodo.tsx";
+import {AddTodoForm} from "../components/Todo/AddTodoForm.tsx";
+import {ListTodo} from "../components/Todo/ListTodo.tsx";
 
 export type ITodo = {
     id: number;
