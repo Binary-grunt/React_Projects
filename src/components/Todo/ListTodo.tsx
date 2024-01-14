@@ -3,7 +3,7 @@ import {useThemeStore} from "../../store/themeStore.tsx";
 import {FooterTodo} from "../ui/FooterTodo.tsx";
 import {ITodo} from "../../pages/Todopages.tsx";
 import {Pagination} from "../ui/Pagination.tsx";
-import {Tasks} from "./ListTask.tsx";
+import {Tasks} from "./Tasks.tsx";
 
 type TodoListProps = {
     todos: ITodo[];
