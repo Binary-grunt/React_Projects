@@ -26,14 +26,19 @@ export const ListTodo: FC<TodoListProps> =
             <div className={`${themeProps.secondaryBg} rounded-md`}>
                 {todos.length ?
                     <>
-                        <Tasks
-                            todos={todos}
-                            onDeleteTodo={onDeleteTodo}
-                            onCheckTodo={onCheckTodo}
-                        />
+                        <ul>
+                            {todos.map(todo => (
+                                <Tasks
+                                    todo={todo}
+                                    onDeleteTodo={onDeleteTodo}
+                                    onCheckTodo={onCheckTodo}
+                                />
+                            ))}
+                        </ul>
                         <FooterTodo notChecked={notChecked} onClearCheck={onClearCheck}></FooterTodo>
-                    </> : null }
-            </div>
+                    </>
+                : null}
+           </div>
             <Pagination
                 onShowAll={onShowAll}
                 onShowActive={onShowActive}
