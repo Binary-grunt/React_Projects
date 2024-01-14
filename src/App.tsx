@@ -1,6 +1,6 @@
 import './App.css'
 import {useThemeStore} from "./store/themeStore.tsx";
-import {ButtonCheck} from "./components/ButtonCheck.tsx";
+import {ButtonCreateTask} from "./components/ButtonCreateTask.tsx";
 import {Header} from "./components/Header.tsx";
 
 export const App = () => {
@@ -8,17 +8,15 @@ export const App = () => {
 
     const backgroundStyle = {
         backgroundImage: `url(${imageBgMobile})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
     };
 
   return (
     <>
-      <div style={backgroundStyle}className={`${themeProps.primaryBg}`}>
+      <div style={backgroundStyle} className={`${themeProps.primaryBg} bg-cover bg-center bg-no-repeat h-52 px-7 font-josefin`}>
           <Header/>
+          <ButtonCreateTask/>
       <h1>Vite + React</h1>
       <div>
-          <ButtonCheck/>
 
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
