@@ -1,20 +1,20 @@
 import {FC} from "react";
 import { useForm } from "react-hook-form";
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useThemeStore } from "../store/themeStore";
+import {ITodoInput, TodoSchema} from "../models/todoModel.ts";
 
 type AddTodoFormProps = {
     onAddTodo: (todoText: string) => void;
 };
 
-type IFormInput = {
-    newTodo: string;
-};
-
 export const AddTodoForm:FC<AddTodoFormProps> = ({onAddTodo}) => {
     const { themeProps, checkIcon } = useThemeStore();
-    const { register, handleSubmit, reset } = useForm<IFormInput>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<ITodoInput>({
+        resolver: zodResolver(TodoSchema)
+    });
 
-    const onSubmit = (data: IFormInput) => {
+    const onSubmit = (data: ITodoInput) => {
         onAddTodo(data.newTodo);
         reset();
     };
@@ -32,6 +32,7 @@ export const AddTodoForm:FC<AddTodoFormProps> = ({onAddTodo}) => {
                     <button type="submit" className="ml-2"></button>
                 </form>
             </div>
+            {errors.newTodo && <p className={"error-message"}>{errors.newTodo.message}</p>}
         </>
     );
 };
