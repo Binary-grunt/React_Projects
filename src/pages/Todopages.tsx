@@ -1,5 +1,5 @@
 import {useCallback, useState} from "react";
-import {AddTodoForm} from "../components/Todo/AddTodoForm.tsx";
+import {AddTodoInput} from "../components/Todo/AddTodoInput.tsx";
 import {ListTodo} from "../components/Todo/ListTodo.tsx";
 
 export type ITodo = {
@@ -9,7 +9,7 @@ export type ITodo = {
     filter: string;
 }
 
-export const Todopages = () => {
+export const Todopage = () => {
     const [todos, setTodos] = useState<ITodo[]>([]);
     const [nextId, setNextId] = useState(1);
 
@@ -40,16 +40,20 @@ export const Todopages = () => {
 
     return (
         <>
-            <AddTodoForm onAddTodo={addTodoHandler} />
-            <ListTodo
-                todos={todos}
-                onDeleteTodo={deleteTodoHandler}
-                onCheckTodo={checkTodoHandler}
-                onClearCheck={clearCheckedHandle}
-                onShowAll={showAllTodo}
-                onShowActive={showNotChecked}
-                onShowCompleted={showChecked}
-            />
+            <div className={'flex flex-col gap-5'}>
+                <AddTodoInput onAddTodo={addTodoHandler} />
+                <ListTodo
+                    todos={todos}
+                    onDeleteTodo={deleteTodoHandler}
+                    onCheckTodo={checkTodoHandler}
+                    onClearCheck={clearCheckedHandle}
+                    onShowAll={showAllTodo}
+                    onShowActive={showNotChecked}
+                    onShowCompleted={showChecked}
+                />
+                <div className={'place-items-center '}>Drag and drop to reorder list</div>
+
+            </div>
         </>
     );
 };
