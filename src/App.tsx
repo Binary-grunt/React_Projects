@@ -26,7 +26,6 @@ export const App = () => {
         setTodos(prevTodos => [...prevTodos, { id: nextId, text, checked: false }]);
         setNextId(nextId + 1);
   };
-
   const deleteTodoHandler = (id: number) => setTodos(todos.filter(todo => todo.id !== id));
 
   const checkTodoHandler = (id: number) => {
