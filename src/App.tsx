@@ -1,7 +1,7 @@
 import './App.css'
 import {useThemeStore} from "./store/themeStore.tsx";
 import {Header} from "./components/Header.tsx";
-import {Todopages} from "./pages/Todopages.tsx";
+import {Todopage} from "./pages/Todopages.tsx";
 
 export const App = () => {
   const {themeProps, imageBgMobile} = useThemeStore();
@@ -14,7 +14,7 @@ export const App = () => {
                     style={backgroundStyle}
                     className={`${themeProps.primaryBg} font-josefin bg-cover bg-center bg-no-repeat h-52 px-7`}>
                     <Header/>
-                    <Todopages/>
+                    <Todopage/>
                 </div>
             </div>
         </>
