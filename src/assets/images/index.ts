@@ -7,3 +7,5 @@ export {default as IconCross} from './icon-cross.svg';
 export {default as IconMoon} from './icon-moon.svg';
 export {default as IconSun} from './icon-sun.svg';
 export {default as TodoIcon} from './TODO_icon.svg';
+export {default as CircleDark} from './CircleDark.svg';
+export {default as CircleLight} from './CircleLight.svg';
