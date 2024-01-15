@@ -9,12 +9,12 @@ export const App = () => {
 
   return (
         <>
-            <div className={`${themeProps.primaryBg} h-screen overflow-auto will-change-scroll`}>
+            <div className={`${themeProps.primaryBg} h-screen`}>
                 <div
                     style={backgroundStyle}
-                    className={`${themeProps.primaryBg} font-josefin bg-cover bg-center bg-no-repeat h-52 px-7 sm:h-80`}>
+                    className={`${themeProps.primaryBg} font-josefin bg-cover bg-center bg-no-repeat h-52 sm:h-80`}>
                     <div className={'center-content'}>
-                    <div className={'flex flex-col sm:min-w-max sm:max-w-xl'}>
+                    <div className={'flex flex-col  sm:min-w-max sm:max-w-xl'}>
                         <Header/>
                         <Todopage/>
                     </div>
