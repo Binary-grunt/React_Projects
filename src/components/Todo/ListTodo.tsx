@@ -21,12 +21,12 @@ export const ListTodo: FC<TodoListProps> =
     ({ todos, onDeleteTodo, onCheckTodo, onClearCheck, onShowAll, onShowActive, onShowCompleted }) => {
     const {themeProps} = useThemeStore();
     const notChecked = todos.filter(todo => !todo.checked).length;
-    const isDesktop = useMediaQuery('(min-width: 1024px)');
-    const isMobile = useMediaQuery(`(max-width: 1023px)`);
+    const isDesktop = useMediaQuery('(min-width: 640px)');
+    const isMobile = useMediaQuery(`(max-width: 639px)`);
 
     return (
         <>
-            <div className={`${themeProps.secondaryBg} rounded-md`}>
+            <div className={`${themeProps.secondaryBg} rounded-md shadow-xl sm:mb-44`}>
                 {todos.length ?
                     <>
                         <ul>
