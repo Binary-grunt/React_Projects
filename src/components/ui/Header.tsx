@@ -1,6 +1,6 @@
 // Importing necessary assets and store.
-import {TodoIcon} from "../assets/images";
-import {useThemeStore} from "../store/themeStore.tsx";
+import {TodoIcon} from "../../assets/images";
+import {useThemeStore} from "../../store/themeStore.tsx";
 
 // Functional component for rendering the header.
 export const Header = () => {

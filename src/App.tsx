@@ -1,6 +1,6 @@
 import './css/App.css'
 import {useThemeStore} from "./store/themeStore.tsx";
-import {Header} from "./components/Header.tsx";
+import {Header} from "./components/ui/Header.tsx";
 import {Todopage} from "./pages/Todopages.tsx";
 
 export const App = () => {
