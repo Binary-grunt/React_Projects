@@ -40,7 +40,7 @@ export const Todopage = () => {
 
     return (
         <>
-            <div className={'flex flex-col gap-5'}>
+            <div className={' flex flex-col sm:min-w-max sm:max-w-xl gap-6'}>
                 <AddTodoInput onAddTodo={addTodoHandler} />
                 <ListTodo
                     todos={todos}
