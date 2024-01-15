@@ -29,6 +29,7 @@ export const ListTodo: FC<TodoListProps> =
                         <ul>
                             {todos.map(todo => (
                                 <Tasks
+                                    key={todo.id}
                                     todo={todo}
                                     onDeleteTodo={onDeleteTodo}
                                     onCheckTodo={onCheckTodo}
