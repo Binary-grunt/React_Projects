@@ -14,7 +14,6 @@ export const Tasks:FC<TasksProps> = ({todo, onCheckTodo, onDeleteTodo }) => {
 
     return (
         <>
-            <div key={todo.id}>
                 <div  className={`${todo.filter} h-14 flex flex-row items-center justify-between pl-5`}>
                     <div className={'flex flex-row items-center'}>
                         <button
@@ -38,7 +37,6 @@ export const Tasks:FC<TasksProps> = ({todo, onCheckTodo, onDeleteTodo }) => {
                     </button>
                 </div>
                 <div className={`h-0.5 ${todo.filter} ${themeProps.contentColor}`}/>
-            </div>
         </>
     );
 };
