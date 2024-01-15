@@ -18,6 +18,7 @@ type ThemeProperties = {
     secondaryText: string;
     contentColor: string;
     inactiveText: string;
+    hoverText: string;
 }
 
 type ThemeStore = {
