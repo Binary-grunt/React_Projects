@@ -1,4 +1,5 @@
 import {FC} from "react";
+import './../../css/AddTodoInput.css'
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useThemeStore } from "../../store/themeStore.tsx";
@@ -21,18 +22,21 @@ export const AddTodoInput:FC<AddTodoFormProps> = ({onAddTodo}) => {
 
     return (
         <>
-            <div className={`${themeProps.secondaryBg} h-14 flex flex-row items-center rounded-md`}>
-                <form onSubmit={handleSubmit(onSubmit)} className='pl-5 flex flex-row items-center'>
+            <div  className={`${themeProps.secondaryBg} 
+            h-16 flex flex-row items-center rounded-md shadow-md min-width sm:h-16`}>
+                <form onSubmit={handleSubmit(onSubmit)} className='pl-5 flex flex-row items-center gap-1'>
                     <img src={checkIcon} className='w-6 h-6'  alt='Check icon'/>
                     <input
                         {...register('newTodo', { required: true })}
                         placeholder="Add a new task"
-                        className={`ml-3 ${themeProps.secondaryBg}`}
+                        className={`ml-3 ${themeProps.secondaryBg} ${themeProps.primaryText}
+                        border-none w-96 h-12 sm:placeholder:text-lg focus:outline-none `}
                     />
+                    {errors.newTodo && <p className={"error-message italic text-xs font-josefin text-bright-blue"}>{errors.newTodo.message}</p>}
                     <button type="submit" className="ml-2"></button>
                 </form>
             </div>
-            {errors.newTodo && <p className={"error-message"}>{errors.newTodo.message}</p>}
+
         </>
     );
 };
