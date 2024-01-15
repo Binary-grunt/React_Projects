@@ -23,7 +23,7 @@ export const AddTodoInput:FC<AddTodoFormProps> = ({onAddTodo}) => {
         <>
             <div className={`${themeProps.secondaryBg} h-14 flex flex-row items-center rounded-md`}>
                 <form onSubmit={handleSubmit(onSubmit)} className='pl-5 flex flex-row items-center'>
-                    <img src={checkIcon} className='w-6 h-6' />
+                    <img src={checkIcon} className='w-6 h-6'  alt='Check icon'/>
                     <input
                         {...register('newTodo', { required: true })}
                         placeholder="Add a new task"
