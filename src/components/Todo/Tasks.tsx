@@ -14,7 +14,8 @@ export const Tasks:FC<TasksProps> = ({todo, onCheckTodo, onDeleteTodo }) => {
 
     return (
         <>
-                <div  className={`${todo.filter} h-14 flex flex-row items-center justify-between pl-5`}>
+                <div  className={`${todo.filter} h-14 flex flex-row items-center justify-between pl-5
+                sm:h-20`}>
                     <div className={'flex flex-row items-center'}>
                         <button
                             onClick={() => onCheckTodo(todo.id)}
@@ -28,7 +29,7 @@ export const Tasks:FC<TasksProps> = ({todo, onCheckTodo, onDeleteTodo }) => {
                         </button>
                         <li className={`${todo.checked ?
                             'line-through text-light-theme-dark-grayish-blue opacity-50' : ''}
-                            ${themeProps.primaryText} ml-3`}>
+                            ${themeProps.primaryText} ml-3 sm:text-lg `}>
                             {todo.text}
                         </li>
                     </div>
