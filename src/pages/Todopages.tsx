@@ -51,8 +51,6 @@ export const Todopage = () => {
                     onShowActive={showNotChecked}
                     onShowCompleted={showChecked}
                 />
-                <div className={'place-items-center '}>Drag and drop to reorder list</div>
-
             </div>
         </>
     );
