@@ -1,0 +1,51 @@
+@media (max-width: 768px) {
+    .buttonThemeStore {
+        display: flex;
+        padding: 4px;
+        align-items: flex-start;
+        border-radius: 999px;
+        width: 42px;
+        height: 24px;
+        cursor: pointer;
+        border: none;
+    }
+    .buttonThemeStore img{
+        height: 16px;
+    }
+
+    .svgMove.moved {
+        transform: translateX(100%); /* déplace le bouton à gauche */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .svgMove.initial {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+@media (min-width: 768px) {
+    .buttonThemeStore {
+        display: flex;
+        padding: 4px;
+        align-items: flex-start;
+        border-radius: 999px;
+        width: 60px;
+        height: 32px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .buttonThemeStore img{
+        height: 25px;
+    }
+    .svgMove.moved {
+        transform: translateX(100%); /* déplace le bouton à gauche */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .svgMove.initial {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+}
